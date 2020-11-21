@@ -1,7 +1,7 @@
 ---
 title: A story of why Forestry loves Hugo
 date: 2020-04-27
-hero: "/images/hero-3.jpg"
+hero: "/boaz-yaniv/tech-blog-demo/images/hero-3.jpg"
 excerpt: Creating a new website for Hopper, one of the top 4 most downloaded travel
   apps in the U.S, along with Uber, Lyft.
 timeToRead: 8
@@ -13,7 +13,7 @@ To understand why Figma is the best design tool for our company, you have to und
 
 Narative is a studio based in 3 different cities around the world; so right off the bat we’re already facing a challenge; geography.
 
-![](/images/hero-2.jpg)
+![](/boaz-yaniv/tech-blog-demo/images/hero-2.jpg)
 
 We came across Figma a few weeks before engaging in our first project. It’s worth noting that, I’ve been using Sketch for several years before Narative, and getting out of your comfort zone can be scary.
 

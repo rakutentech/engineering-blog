@@ -1,7 +1,7 @@
 ---
 title: Understanding the Gatsby lifecycle in depth
 date: 2017-04-28
-hero: /images/hero-2.jpg
+hero: /boaz-yaniv/tech-blog-demo/images/hero-2.jpg
 excerpt: With the growing community interest in Gatsby, we hope to create more resources that make it easier for anyone to grasp the power of this incredible tool.
 timeToRead: 4
 authors:
@@ -117,7 +117,7 @@ And finally, once the generated files are deployed, Gatsby lives in the browser.
 
 What’s important to remember is that Gatsby’s lifecycle can be aggregated into 3 main sequences:
 
-![This is the alt text](./images/gatsby-narative-output.png)
+![This is the alt text](./boaz-yaniv/tech-blog-demo/images/gatsby-narative-output.png)
 
 - Bootstrap
 - Build
