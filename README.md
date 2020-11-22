@@ -47,3 +47,27 @@
 Run the shell script `./deploy` to re-render the blog and deploy everything to
 GitHub pages.
 
+## How To:
+
+### Add a new author profile
+
+TBD
+
+### Add more languages to syntax highlighting
+
+To reduce bundle download size, the syntax highlighting script is currently not
+configured to support all languages. If you find that you need a new language
+that is not supported, you can add it by upgrading the CSS and JS assets used
+by [Prism](https://prismjs.com/) for syntax highlighting:
+
+1. Open `assets/css/prism.css` or `assets/js/prism.js` and look at the header.
+   It should contain the download link that was used to generate this file.
+2. Open the download link in your browser.
+3. Put in a check mark for the language (or languages) you want to add.
+4. Click the download CSS button and copy the downloaded CSS file over
+   `assets/css/prism.css`.
+5. Click the download JS button and copy the downloaded JavaScript file over
+   `assets/js/prism.js`.
+6. Restart the Hugo server and reload everything in your browser (`Cmd+Shift-R`
+   on Mac and `Ctrl-Shift-R` on Windows or Linux) to make sure your cache is
+   refreshed.
