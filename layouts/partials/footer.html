@@ -1,0 +1,12 @@
+<div class="footer-gradient"></div>
+<div class="section narrow">
+    <div class="footer-hr"></div>
+    <div class="footer-container">
+        <div class="footer-text">
+            © {{ dateFormat "2006" now }} {{ .Site.Title }}
+        </div>
+        {{ partial "social-links/social-links.html" . }}
+    </div>
+</div>
+{{ $extra := resources.Get "js/extra.js" }}
+<script src="{{ $extra.RelPermalink }}"></script>

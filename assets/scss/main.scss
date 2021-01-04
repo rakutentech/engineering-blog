@@ -37,3 +37,42 @@
 	> div.linkedin > svg {height: 19px; margin-top: 7px; }
 	> div.mail > svg {height: 14px; margin-top: 11px;}
 }
+
+/* Highlight inline code */
+p>code, li>code { background-color: rgba(0,0,0,0.1); border: 1px solid #ddd; padding: 1px 5px 5px 5px; border-radius: 3px; margin: 0 3px;}
+
+/* Reduce the font size of the blockquote and consider bold text as the author of the quote */
+blockquote>p { font-size: 26px; text-align: right; padding-left: 200px}
+blockquote>p>strong { font-size: 16px; padding-top: 8px}
+
+/* Reduce the size of H1 */
+h1 { font-size: 40px }
+
+/* Fix the overlapping of the language name with the "Copy" label in the code snippets */
+.toolbar-item:nth-child(1) { transform: translate(-40px, -1px); }
+
+/* Fix numbers in the notes */
+ol li::before {top: 0; text-align: right; transform: translateX(-10px);}
+ol {padding-left: 50px}
+@media screen and (max-width: 735px) { ol li::before { left: -30px } }
+@media screen and (max-width: 540px) { ol li { padding-left: 0 } }
+
+/* Restore separation before notes */
+hr {height: 3px; background-color: rgba(0,0,0,0.1)}
+
+/* Add title to the notes */
+.footnotes>ol {margin-top: 140px}
+.footnotes>ol::before {content: "Notes"; transform: translate(-26px, -80px); font-size: 30px; position: absolute}
+
+/* Rakuten logo color in light and dark mode */
+#logo-desktop path, #logo-mobile path {fill: #ffffff}
+.light #logo-desktop path, .light #logo-mobile path {fill: #bf0000}
+
+/* Fix the height of the hero being indepentend from the image */
+.article-hero-image { position: relative; }
+
+/* Adjusting the space when the #progressBar is there */
+#articleContent { padding-top: 50px; margin-top: -400px; }
+
+/* Adjusting the space when the #progressBar is not there */
+@media screen and (max-width: 1280px) { #articleContent { margin-top: 0 } }
