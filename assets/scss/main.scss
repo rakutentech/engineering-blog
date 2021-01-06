@@ -64,10 +64,6 @@ hr {height: 3px; background-color: rgba(0,0,0,0.1)}
 .footnotes>ol {margin-top: 140px}
 .footnotes>ol::before {content: "Notes"; transform: translate(-26px, -80px); font-size: 30px; position: absolute}
 
-/* Rakuten logo color in light and dark mode */
-#logo-desktop path, #logo-mobile path {fill: #ffffff}
-.light #logo-desktop path, .light #logo-mobile path {fill: #bf0000}
-
 /* Fix the height of the hero being indepentend from the image */
 .article-hero-image { position: relative; }
 
