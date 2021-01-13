@@ -1,4 +1,27 @@
 @import "global.scss";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+body{
+	/* We use the secondary as the color for the logo, so it properly
+	   change color in dark mode */
+    --secondary: #bf0000;
+	/* Add Noto Sans */
+    --sanserif: "Noto Sans", "SF Pro Display", "BlinkMacSystemFont", "San Francisco", "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI", "Arial", sans-serif;
+}
+
+#logo-desktop{
+    .change-fill{
+		/* Change the color of the logo to "secondary" */
+        fill: var(--secondary);
+    }
+}
+
+#logo-mobile{
+    path{
+		/* Change the color of the logo to "secondary" */
+        fill: var(--secondary);
+    }
+}
 
 .article-header {
 	margin: 30px auto 40px auto;
