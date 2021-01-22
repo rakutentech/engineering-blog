@@ -1,0 +1,218 @@
+@import global.scss
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap")
+
+body 
+  --secondary: #bf0000      /* Add Noto Sans */
+  --sanserif: "Noto Sans", "SF Pro Display", "BlinkMacSystemFont", "San Francisco", "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI", "Arial", sans-serif
+
+  /* Increase contrast https://ghe.rakuten-it.com/boaz-yaniv/tech-blog-demo/issues/8
+  --grey: #111
+
+/* Change the color of the logo to "secondary"
+#logo-desktop
+  .change-fill
+    fill: var(--secondary)
+
+/* Change the color of the logo to "secondary"
+#logo-mobile
+  path
+    fill: var(--secondary)
+
+.article-header
+  margin: 30px auto 40px auto
+
+.article-hero-heading
+  margin: 0 0 5px 0
+
+.article-hero-subtitle
+  padding: 0
+
+.article-meta
+  align-items: center
+
+#share-buttons
+  display: flex
+  margin-left: 20px
+
+  > div
+    height: 32px
+    width: 22px
+
+    > svg
+      height: 16px
+      fill: #d5d5d5
+      margin-top: 10px
+
+    \:hover
+      cursor: pointer
+
+  > div.facebook:hover > svg
+    fill: #3B5998
+
+  > div.twitter:hover > svg
+    fill: #55ACEE
+
+  > div.linkedin:hover > svg
+    fill: #0077b5
+
+  > div.mail:hover > svg
+    fill: #7D7D7D
+
+  > div.facebook > svg
+    height: 18px
+    margin-top: 9px
+
+  > div.twitter > svg
+    height: 20px
+    margin-top: 8px
+    margin-left: 1px
+
+  > div.linkedin > svg
+    height: 19px
+    margin-top: 7px
+
+  > div.mail > svg
+    height: 14px
+    margin-top: 11px
+
+/* Highlight inline code
+p > code, li > code
+  background-color: rgba(0, 0, 0, 0.1)
+  border: 1px solid #ddd
+  padding: 0px 5px
+  border-radius: 3px
+  margin: 0 3px
+
+/* Reduce the font size of the blockquote and consider bold text as the author of the quote
+blockquote > p
+  font-size: 26px
+  text-align: right
+  padding-left: 200px
+
+blockquote > p > strong
+  font-size: 16px
+  padding-top: 8px
+
+/* Reduce the size of H1
+h1
+  font-size: 40px
+
+/* Fix the overlapping of the language name with the "Copy" label in the code snippets
+.toolbar-item:nth-child(1)
+  transform: translate(-40px, -1px)
+
+/* Fix numbers in the notes
+ol li::before
+  top: 0
+  text-align: right
+  transform: translateX(-10px)
+
+ol
+  padding-left: 50px
+
+@media screen and (max-width: 735px)
+  ol li::before
+    left: -30px
+
+@media screen and (max-width: 540px)
+  ol li
+    padding-left: 0
+
+/* Restore separation before notes
+hr
+  height: 3px
+  background-color: rgba(0, 0, 0, 0.1)
+
+/* Add title to the notes
+.footnotes > ol
+  margin-top: 140px
+
+.footnotes > ol::before
+  content: "Notes"
+  transform: translate(-26px, -80px)
+  font-size: 30px
+  position: absolute
+
+/* Fix the height of the hero being indepentend from the image
+.article-hero-image
+  position: relative
+
+/* Adjusting the space when the #progressBar is there
+#articleContent
+  padding-top: 50px
+  margin-top: -400px
+
+/* Adjusting the space when the #progressBar is not there
+@media screen and (max-width: 1280px)
+  #articleContent
+    margin-top: 0
+
+/* From @arkham: The sup tags breaks the vertical rhythm of the text.
+/* I’ve found this css hack to fix it, which works well in chrome, safari
+/* and firefox.
+sup
+  vertical-align: baseline
+  position: relative
+  top: -0.4em
+  font-size: 16px
+
+p > img + em
+  text-align: center
+  display: block
+  width: 80%
+  margin: 8px auto 0px auto
+  font-size: 16px
+
+li
+  line-height: 1.756
+
+/* Remove inset https://ghe.rakuten-it.com/boaz-yaniv/tech-blog-demo/issues/13
+@media screen and (max-width: 540px)
+  .article-header
+    padding: 0
+
+  .section
+    padding: 1.5rem
+
+  .narrow p
+    padding: 0 1rem
+
+/* Add some space after the article title
+.article-hero-heading
+  margin: 0 0 20px
+
+/* Remove space https://ghe.rakuten-it.com/boaz-yaniv/tech-blog-demo/issues/14
+@media screen and (max-width: 540px)
+  .heading-container
+    margin: 50px 0
+
+  .footer-text
+    margin: 20px 0
+
+/* Remove border around Author
+@media screen and (max-width: 540px)
+  .article-hero-subtitle
+    border: 0
+
+  #share-buttons
+    margin-left: 0
+    margin-top: 10px
+
+.article-meta
+  align-items: normal
+
+/* Fix github icon in footer
+.social-icon-outer
+  width: auto
+  min-width: auto
+
+/* Add underline to links
+button, a
+  text-decoration: underline
+
+a:hover, a:focus
+  text-decoration: none
+
+.article-link
+  text-decoration: none
