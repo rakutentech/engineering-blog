@@ -229,9 +229,9 @@ __Retry with Kotlin Flow__
 interface BackendService {
   suspend fun doSomething(): Response
 }
- 
+
 val backendService: Backendservice by inject() // using dependency injection
- 
+
 val response = backendService::doSomething
   .asFlow() // Convert coroutine call to reactive flow
   .retryExponentially(

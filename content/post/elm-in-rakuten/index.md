@@ -797,8 +797,9 @@ Moreover, **Elm-UI** ensures that our HTML is valid and accessible forcing us to
 For me, this felt like a breath of fresh air after years spent learning all sort of CSS tricks.[^css-tricks-irony]
     
 [^css-tricks-irony]: Before moving to **Elm-UI** we were avid consumers of [css-tricks.com](https://css-tricks.com/), an excellent source of CSS tricks and information related to web development. Ironically it was also the place where we learned the existence of Elm that led us to use **Elm-UI** and eventually made **css-tricks.com** way less relevant.
-    
-     
+
+
+
 
 
 
@@ -1269,3 +1270,4 @@ A consequence of these technical benefits is the great feeling of relaxation, no
 Compared to the pre-Elm experience, coding is now more enjoyable and more productive! 🎉
 
 [^fp-fun-again]: **Rúnar Bjarnason** is an advocate of functional programming. He is the co-author of the Scala “Red book” and the creator of the programming language Unison. Unison has similarities to Elm as they are both inspired by Haskell, as explained in his video [Introduction to the Unison programming language](https://youtu.be/rp_Eild1aq8?t=248).
+

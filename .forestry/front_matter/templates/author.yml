@@ -35,9 +35,9 @@ fields:
       required: false
     label: URL
   config:
-    min: 
-    max: 
-    labelField: 
+    min:
+    max:
+    labelField:
   label: Social Media
 - name: featured
   type: boolean
