@@ -1,13 +1,25 @@
 @import global.scss
 
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap")
+@font-face
+  font-family: 'RakutenSansUI'
+  src: url("../fonts/RakutenSansUI_W_Rg.woff2") format("woff2"), url("../fonts/RakutenSansUI_W_Rg.woff") format("woff")
+  font-weight: normal
+  font-weight: 400
+  font-style: normal
 
-body 
+@font-face
+  font-family: 'RakutenSansUI'
+  src: url("../fonts/RakutenSansUI_W_Bd.woff2") format("woff2"), url("../fonts/RakutenSansUI_W_Bd.woff") format("woff")
+  font-weight: bold
+  font-weight: 700
+  font-style: normal
+
+body
   --secondary: #bf0000      /* Add Noto Sans */
-  --sanserif: "Noto Sans", "SF Pro Display", "BlinkMacSystemFont", "San Francisco", "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI", "Arial", sans-serif
+  --sanserif: "RakutenSansUI", "SF Pro Display", "BlinkMacSystemFont", "San Francisco", "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI", "Arial", sans-serif
 
   /* Increase contrast https://ghe.rakuten-it.com/boaz-yaniv/tech-blog-demo/issues/8
-  --grey: #111
+  --grey: #000
 
 /* Change the color of the logo to "secondary"
 #logo-desktop
@@ -216,3 +228,30 @@ a:hover, a:focus
 
 .article-link
   text-decoration: none
+
+@media screen and (max-width: 540px)
+  .article-hero::before
+    display: none
+
+.dark
+  .article-metadata, .article-excerpt, .article-meta, .footer-text, .footer-next-heading, .social-icon-image path
+    opacity: 1
+    color: #bbb
+    fill: #bbb
+
+@media screen and (max-width: 735px)
+  blockquote
+    padding: 0 40px
+
+#share-buttons > div > svg
+  fill: #888
+
+.article-meta
+  width: 100%
+
+.article-author-link
+  text-decoration: none
+
+@media screen and (max-width: 735px)
+  .footer-container
+    padding-bottom: 0
