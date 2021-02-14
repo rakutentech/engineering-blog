@@ -1,0 +1,10 @@
+#!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+docker run --rm -u `id -u`:`id -g` -v `pwd`:/pandoc pandocker \
+  --include-in-header="$DIR/header.tex" \
+  --pdf-engine=xelatex --mathjax \
+  --highlight-style zenburn \
+  -V "mainfont:Noto Sans" \
+  "$1" -o "$2"
+
