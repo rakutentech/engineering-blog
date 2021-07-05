@@ -1,7 +1,7 @@
 ---
 title:        Make It Explicit
 date:         2020-09-15
-hero: /boaz-yaniv/tech-blog-demo/images/hero-4.jpg
+hero: /images/hero-4.jpg
 authors:
   - Nemo
 draft:        false

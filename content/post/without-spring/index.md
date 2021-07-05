@@ -3,7 +3,7 @@ title:        Life without Spring
 date:         2020-07-24
 authors:      [Boaz Yaniv, Nemo]
 draft:        false
-hero:         /boaz-yaniv/tech-blog-demo/images/hero-2.jpg
+hero:         /images/hero-2.jpg
 excerpt:      >
   Spring does a lot. Spring is impossible to understand. Spring is industry
   standard. Spring is slow. Spring is easy. Spring is complex. Is it time to

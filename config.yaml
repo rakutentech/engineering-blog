@@ -1,4 +1,4 @@
-baseurl: "https://pages.ghe.rakuten-it.com/boaz-yaniv/tech-blog-demo"  # Include trailing slash
+baseurl: "https://engineering.rakuten.today/"  # Include trailing slash
 languageCode: "en-us"
 title: "Rakuten Engineering Blog"
 pygmentsstyle: 'monokai'

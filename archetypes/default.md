@@ -1,11 +1,11 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-hero: /boaz-yaniv/tech-blog-demo/images/hero-3.jpg
+hero: /images/hero-3.jpg
 excerpt: "A default excerpt"
 timeToRead: 5
 authors:
-  - Dennis Brotzky
+  - Rakuten Taro
 draft: true
 ---
 
