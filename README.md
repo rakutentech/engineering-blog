@@ -18,7 +18,7 @@
    Hugo Static Site Generator v0.78.2/extended darwin/amd64 BuildDate: unknown
    ```
 
-2. Clone this repository
+2. [Fork](https://github.com/rakutentech/engineering-blog/fork) & Clone this repository
 3. Run the local server with:
    ```
    > hugo server
@@ -51,7 +51,20 @@ GitHub pages.
 
 ### Add a new author profile
 
-TBD
+1. Create a folder for yourself under `./content/authors/YOUR_NAME`
+2. Add an avatar image
+3. Add an `_index.md` file, for example
+   ```yaml
+   title: Your Name
+   bio: |
+      Your Bio
+   avatar: /authors/YOUR_NAME/YOUR_AVATAR.png
+   social:
+   - title: github
+      url: https://github.com/YOUR_GITHUB
+      # other social links
+   ```
+   See the [author partial](https://github.com/forestryio/hugo-theme-novela/tree/master/layouts/partials/author) for details on how it will be rendered
 
 ### Add more languages to syntax highlighting
 
@@ -71,3 +84,11 @@ by [Prism](https://prismjs.com/) for syntax highlighting:
 6. Restart the Hugo server and reload everything in your browser (`Cmd+Shift-R`
    on Mac and `Ctrl-Shift-R` on Windows or Linux) to make sure your cache is
    refreshed.
+
+### Prepare PDF for PR review
+
+We use [pandoc](https://pandoc.org/), for example [via docker](https://github.com/pandoc/dockerfiles#basic-usage)
+
+```shell
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex path/to/source.md -o output.pdf --pdf-engine=xelatex 
+```
