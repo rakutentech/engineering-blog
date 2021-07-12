@@ -1,0 +1,12 @@
+{{ $url := urls.Parse .Destination }}
+<a
+  href="{{ .Destination | safeURL }}"
+  {{ with .Title}}
+    title="{{ . }}"
+  {{ end }}
+  {{ if not (strings.HasPrefix .Destination "http") }}
+  {{ else if (in .Page.Site.Data.opener_policy.origins $url.Host) }}}
+  {{ else }}
+    target="_blank" rel="external noopener nofollow"
+  {{ end }}
+>{{ .Text | safeHTML }}</a>
