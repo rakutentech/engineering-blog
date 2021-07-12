@@ -142,19 +142,30 @@ If you need to create a quick proof of concept, dynamic typing may be faster and
 
 TypeScript, which adds optional static typing to JavaScript and is probably one of the best things to happen to JavaScript, can partially mitigate the issues with the JavaScript dynamic type system. But being a superset of JavaScript it needs to compromise on elegance and simplicity. For example, type declarations are optional (*any* as escape hatch), inference doesn’t cover all the code, it requires *type guards*[^type-guards], and not all JavaScript libraries have type annotations.
 
-[^type-guards]: [Type guards](https://www.typescriptlang.org/docs/handbook/advanced-types.html) are TypeScript expressions that perform a runtime check to discriminate between *custom types*. For example:{{< highlight typescript >}}function isFish(pet: Fish | Bird): pet is Fish {
+[^type-guards]: [Type guards](https://www.typescriptlang.org/docs/handbook/advanced-types.html) are TypeScript expressions that perform a runtime check to discriminate between *custom types*. For example:
+{{< highlight typescript >}}
+function isFish(pet: Fish | Bird): pet is Fish {
     return (pet as Fish).swim !== undefined;
-}{{< /highlight >}}After that is possible to write code like:{{< highlight javascript >}}if (isFish(pet)) {
+}
+{{< /highlight >}}
+After that is possible to write code like:
+{{< highlight javascript >}}
+if (isFish(pet)) {
     pet.swim();
 } else {
     pet.fly();
-}{{< /highlight >}}In Elm *type guards* are not needed, it is possible to just directly use a [case .. of](https://guide.elm-lang.org/types/pattern_matching.html) construct{{< highlight elm >}}case pet of
+}
+{{< /highlight >}}
+In Elm *type guards* are not needed, it is possible to just directly use a [case .. of](https://guide.elm-lang.org/types/pattern_matching.html) construct
+{{< highlight elm >}}
+case pet of
     Fish fish ->
         fish.swim
-    
+
     Bird bird ->
-        bird.fly{{< /highlight >}}The **case .. of** construct also guarantees that we are considering all possible custom types.
-    
+        bird.fly
+{{< /highlight >}}
+The **case .. of** construct also guarantees that we are considering all possible custom types.
 
 ## 3. “Making impossible states impossible”
 
