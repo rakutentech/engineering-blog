@@ -1,7 +1,7 @@
 ---
 title: "Elm in Rakuten"
 date: 2021-01-12T00:00:00+09:00
-hero: https://lucamug.github.io/post-Elm-in-Rakuten/images/elm-in-rakuten.png
+hero: ./images/elm-in-rakuten.png
 excerpt: "Our story of adopting the Elm language in Rakuten. The lessons we learned, and our likes and dislikes."
 timeToRead: 5
 authors:
@@ -39,7 +39,7 @@ Elm was promising that all of our functions would be pure by design and that the
 
 Moreover, **The Elm Architecture**, included in the Elm language, seemed an excellent way to structure an application. It ended up being one of the most influential Elm ideas in the front-end world, more about this later.
 
-![The Elm Architecture](https://lucamug.github.io/post-Elm-in-Rakuten/images/the-elm-architecture.jpg)
+![The Elm Architecture](./images/the-elm-architecture.jpg)
 *The Elm Architecture, illustration by [Kolja Wilcke](https://twitter.com/01k), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).*
 
 So, we started learning Elm by building some prototypes, and the first results were promising. But the technology stack was still heavily server-side based, mostly PHP, and the adoption was proceeding slowly.
@@ -135,7 +135,7 @@ Elm, in contrast, is strongly statically typed but types declaration are optiona
 
 [^funny-youtube-videos]: There are several funny videos about this topic on YouTube. One of the most popular is probably [What the... JavaScript?](https://youtu.be/2pL28CcEijU) by Kyle Simpsons
 
-![Dynamic Typing vs Static Typing](https://lucamug.github.io/post-Elm-in-Rakuten/images/dynamic-vs-static.png)
+![Dynamic Typing vs Static Typing](./images/dynamic-vs-static.png)
 *Dynamic Typing vs Static Typing, illustration by [Kolja Wilcke](https://twitter.com/01k), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).*
 
 If you need to create a quick proof of concept, dynamic typing may be faster and the puzzle does resemble a giraffe even if it contains mistakes. But for robust applications and correct puzzle solutions, static typing is the right way to go.
@@ -158,7 +158,7 @@ TypeScript, which adds optional static typing to JavaScript and is probably one 
 
 ## 3. “Making impossible states impossible”
 
-![Penrose Triangle](https://lucamug.github.io/post-Elm-in-Rakuten/images/penrose-triangle.jpg)
+![Penrose Triangle](./images/penrose-triangle.jpg)
 *Penrose Triangle.*[^penrose-triangle]
 
 [^penrose-triangle]: The [Penrose Triangle](https://en.wikipedia.org/wiki/Penrose_triangle) is a triangular impossible object. Illustration made with Elm and [Elm-Playground](https://package.elm-lang.org/packages/evancz/elm-playground/latest/), [here the source code](https://ellie-app.com/bZVgZf8GJvja1).
@@ -350,7 +350,7 @@ Best practices should be automated as much as possible and the Elm compiler is p
 
 The compiler guarantees that all edge cases are covered, something difficult to achieve with hand-made unit tests. Another advantage of the compiler static analysis is that it is extremely fast and can provide the exact location of errors.
 
-![John Carmack on Elm Errors](https://lucamug.github.io/post-Elm-in-Rakuten/images/john-carmack-on-errors.png)
+![John Carmack on Elm Errors](./images/john-carmack-on-errors.png)
 The Elm compiler produces **state-of-the-art error messages** and its high standard of quality is now an inspiration for other language designers too.[^error-messages]
 
 [^error-messages]: "[This should be an inspiration for every error message](https://twitter.com/id_aa_carmack/status/735197548034412546)", John Carmack commenting on Elm error messages
@@ -387,7 +387,7 @@ Considering how influential Elm is and the general trend toward Functional Progr
 
 [^unidirectional-data-flow]: The Elm Architecture is based on [**unidirectional data flow**](https://youtu.be/jl1tGiUiTtI?t=470) (a.k.a. **one-way data binding**) like React, in contrast to the **bidirectional data flow** (a.k.a. **two-way data binding**) of frameworks like Angular, Vue, and Svelte ([in Svelte two-way binding can be disabled](https://github.com/sveltejs/svelte/issues/54)). There have been issues with two-way data binding. For example, the many-to-many dependencies between the view and the model can create an infinite loop of cascading updates. Another issue is the lack of control of the change detection mechanism. It is an implicit behavior that is not easy to control. Unidirectional data flow tends to be more predictable.
 
-![The Elm Architecture, animated](https://lucamug.github.io/post-Elm-in-Rakuten/images/the-elm-architecture.svg)    
+![The Elm Architecture, animated](./images/the-elm-architecture.svg)
 *A simple representation of the unidirectional data flows in The Elm Architecture. (Source: The Elm Guide)*[^representation-of-unidirectional-flow]
 
 [^representation-of-unidirectional-flow]: The illustration **A simple representation of the Elm Architecture** is from the as depicted in the [Elm Guide](https://guide.elm-lang.org/architecture/) used under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) [license](https://github.com/evancz/guide.elm-lang.org/blob/master/LICENSE).
@@ -400,7 +400,7 @@ There are three building blocks in The Elm Architecture:
 
 If we zoom in on the `Elm` block in the diagram above, this is what is happening inside:
 
-![The Elm Architecture, animated](https://lucamug.github.io/post-Elm-in-Rakuten/images/the-elm-architecture-animation.gif)
+![The Elm Architecture, animated](./images/the-elm-architecture-animation.gif)
 This animation shows in detail how the **Elm runtime system**[^elm-runtime] orchestrates the **infinite loop**[^the-game-loop] of an Elm application.
 
 [^elm-runtime]: When we write Elm code, 100% of our code is pure so there are no side effects. But without side effects, our application would just be a boring silent empty screen. The **Elm runtime system** is the part of the code that is in charge of the side-effects. In our code, we just request these side effects to be done and we wait for the outcomes. Examples of side effects are HTTP requests or DOM modifications. How do we do side effects while remaining pure? In Elm, there are two ways. For things like HTTP requests, for example, there are commands (`Cmd`), that are instructions, in the form of data, that we send as requests to the Elm runtime system. For changing the DOM, the way to do side effects is to take the entire state of the world as an argument and return a new version of it. So we can change the world (side effects) by remaining pure. The world in our case is the **Model** and the function that does that is the **update** function: `update: Msg -> Model -> (Model, Cmd msg)` (see [The Elm Architecture]({{< ref "#11-the-elm-architecture" >}}) for more details). The video [What is IO monad?](https://youtu.be/fCoQb-zqYDI?t=42) by Alexey Kutepov explains this concept in general terms.
@@ -425,7 +425,7 @@ The built-in **Elm debugger**[^elm-debugger] is a useful tool to debug Elm appli
 
 [^elm-debugger-example]: The **Elm debugger** is usually disabled for applications that are released in production, but you can find an example of it in [elmjapan.org](https://elmjapan.org/) where it has been kept active for educational purposes.
 
-![The Elm Debugger](https://lucamug.github.io/post-Elm-in-Rakuten/images/debugger.gif)
+![The Elm Debugger](./images/debugger.gif)
 
 ## 13. Elm-UI, the alternative to CSS/HTML
 
@@ -637,7 +637,7 @@ The Elm compiler per se is also fast. Our bigger codebase contains ~66,500 lines
 
 ## 1. Not mainstream
 
-![Escape](https://lucamug.github.io/post-Elm-in-Rakuten/images/escape.jpg)
+![Escape](./images/escape.jpg)
 *If many people believe something, does it make it true?* [^appeal-to=popularity]
 
 [^appeal-to=popularity]: Appeal to popularity, or [Argumentum ad populum](https://en.wikipedia.org/wiki/Argumentum_ad_populum), is a fallacious argument that concludes that something must be true because many or most people believe it. Illustration made with Elm and [Elm-Playground](https://package.elm-lang.org/packages/evancz/elm-playground/latest/), [here the source code](https://ellie-app.com/bY2R6xF5mWda1).
