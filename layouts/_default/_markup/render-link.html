@@ -1,12 +1,28 @@
-{{ $url := urls.Parse .Destination }}
-<a
-  href="{{ .Destination | safeURL }}"
-  {{ with .Title}}
+<a href="{{ .Destination | safeURL }}"
+  {{- with .Title}}
     title="{{ . }}"
-  {{ end }}
-  {{ if not (strings.HasPrefix .Destination "http") }}
-  {{ else if (in .Page.Site.Data.opener_policy.origins $url.Host) }}}
-  {{ else }}
-    target="_blank" rel="external noopener nofollow"
-  {{ end }}
+  {{- end }}
+  {{/* Cross-origin URLs open in a new tab */}}
+  {{- $url := urls.Parse (.Destination | relURL ) }}
+  {{- if ne $url.Host "" }}
+    target="_blank"
+    {{/* Whether the origin is a (sub)domain listed in origins.friends */}}
+    {{- $candidate := printf ".%s" $url.Host }}
+    {{- $friendlyDomains := newScratch }}
+    {{- range .Page.Site.Data.origins.friends }}
+      {{- if strings.HasSuffix $candidate (printf ".%s" .) }}
+        {{- $friendlyDomains.Set "included" true }}
+      {{- end }}
+    {{- end }}
+    {{- $isFriendly := $friendlyDomains.Get "included" }}
+    {{/* Whether the URL uses HTTPS */}}
+    {{- $isHttps := or (eq $url.Scheme "https") (eq $url.Scheme "") }}
+    {{- if and $isHttps $isFriendly }}
+      {{/* Allow opener on friendly HTTPS URLs */}}
+      rel="opener"
+    {{- else }}
+      {{/* Everything else is external and untrusted */}}
+      rel="external noopener noreferrer nofollow"
+    {{- end }}
+  {{- end }}
 >{{ .Text | safeHTML }}</a>
