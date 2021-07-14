@@ -7,13 +7,15 @@ timeToRead: 5
 authors:
   - Luca Mugnaini
 draft: false
+seo:
+  canonical: https://dev.to/lucamug/elm-6m8
 ---
 
 In our team at Rakuten, **we have been using Elm[^elm] in production for almost two years now**. This post is about our story, the lessons we learned, and our likes and dislikes.
 
 This post is quite long so if you prefer to see an overview, feel free to [jump to the index](#index).
 
-[^elm]: **Elm** is a **compiled, immutable, strongly statically typed, and purely functional** programming language that compiles to JavaScript. JavaScript is a **just-in-time compiled, weakly dynamically typed, multi-paradigm** programming language. To know more about Elm, a good start is the [official guide](https://guide.elm-lang.org/). If you are familiar with JavaScript you can check [From JavaScript?](https://elm-lang.org/docs/from-javascript) which is a short comparison between the syntax of the two languages.The Elm language, including the compiler and the core libraries, is designed and developed by Evan Czaplicki, with the support of a small core team of developers. Evan retains the final say in disputes or arguments. This setup, a common practice for the initial few years of many languages, guarantees a coherent vision and well-designed APIs.
+[^elm]: **Elm** is a **compiled, immutable, strongly statically typed, and purely functional** programming language that compiles to JavaScript. JavaScript is a **just-in-time compiled, weakly dynamically typed, multi-paradigm** programming language. To know more about Elm, a good start is the [official guide](https://guide.elm-lang.org/). If you are familiar with JavaScript you can check [From JavaScript?](https://elm-lang.org/docs/from-javascript) which is a short comparison between the syntax of the two languages. The Elm language, including the compiler and the core libraries, is designed and developed by Evan Czaplicki, with the support of a small core team of developers. Evan retains the final say in disputes or arguments. This setup, a common practice for the initial few years of many languages, guarantees a coherent vision and well-designed APIs.
 
 Everything started in the Berlin branch of Rakuten during the summer of 2017. We were maintaining a medium-size single-page application written in Vanilla JavaScript when things started going out of control.
 
@@ -123,7 +125,7 @@ These are probably the most objective and important guarantees that Elm provides
 
 There are tradeoffs when choices, like these above, are made. For example, is not possible to call a JavaScript function directly from Elm. If that is of paramount importance for you, Elm is not the right choice.
 
-If, instead, you think that Elm guarantees are more important, then Elm is the right choice.
+If instead, you think that Elm guarantees are more important, then Elm is the right choice.
 
 In the section _The Limits of Elm/JS Interop_ of the Elm guide, Evan Czaplicki elaborates more on this concept.[^limits-of-interop]
 
@@ -261,7 +263,7 @@ The principle guarantees consistency across codebases, even when they belong to 
 
 Other languages and frameworks follow different principles. For example, JavaScript follows the **“One JavaScript”** principle.[^one-javascript] It means that JavaScript is not versioned and is back compatible. Back-compatibility is the precursor of "several ways of doing things."
 
-[^one-javascript]: The [One JavaScript](https://2ality.com/2014/12/one-javascript.html) principle is about removing versioning and being always back-compatible. This fact, combined with ten days of design and 25 years of back-compatibility, inevitably accumulated a large number of different ways of doing things. For example, defining a function can be done in [several different ways](https://dmitripavlutin.com/6-ways-to-declare-javascript-functions/).
+[^one-javascript]: The [One JavaScript](https://2ality.com/2014/12/one-javascript.html) principle is about removing versioning and being always back-compatible. This fact, combined with ten days of design and 25 years of back compatibility, inevitably accumulated a large number of different ways of doing things. For example, defining a function can be done in [several different ways](https://dmitripavlutin.com/6-ways-to-declare-javascript-functions/).
 
 [Index](#index) | [Top](#top)
 
@@ -356,7 +358,7 @@ List.map (add 10) [1, 2, 3] -- Gives [11,12,13]
 
 ## 8. Enforced discipline
 
-Purely functional languages motivate programmers to think better about the programs they are building. Although the initial development time can increase with such restrictions, the increased maintainability compensate for the effort.
+Purely functional languages motivate programmers to think better about the programs they are building. Although the initial development time can increase with such restrictions, the increased maintainability compensates for the effort.
 
 Elm enforces discipline on developers rather than letting developers be disciplined on their own. This fact, in conjunction with other characteristics, makes Elm a good fit for large front-end teams.
 
@@ -376,10 +378,10 @@ Another example of enforced discipline is that it is not possible to include Jav
 
 ## 9. Learnability
 
-Elm is beginner-friendly. It doesn't mean that Elm is not sophisticated enough. It means that it is well designed. There are both simple constructs for beginners and complex constructs for masters. Complexity gets introduced gradually.[^introduced-gradually] This concept is sometime called "gradual learning" or "progressive disclosure of complexity".[^progressive-disclosure-of-complexity]
+Elm is beginner-friendly. It doesn't mean that Elm is not sophisticated enough. It means that it is well designed. There are both simple constructs for beginners and complex constructs for masters. Complexity gets introduced gradually.[^introduced-gradually] This concept is sometimes called "gradual learning" or "progressive disclosure of complexity".[^progressive-disclosure-of-complexity]
 
 [^introduced-gradually]: For example _sandbox_, _element_, _document_, and _application_ in [Elm-Browser](https://package.elm-lang.org/packages/elm/browser/latest/Browser); _get_, _post_, and _request_ in [Elm-HTTP](https://package.elm-lang.org/packages/elm/http/latest/Http); _picture_, _animation_, and _game_ in [Elm-Playground](https://package.elm-lang.org/packages/evancz/elm-playground/latest/Playground); etc.
-[^progressive-disclosure-of-complexity]: Chris Krycho talk about it in the article [Progressive Disclosure of Complexity and Typed FP Languages](https://v5.chriskrycho.com/journal/progressive-disclosure-of-complexity-and-typed-fp-languages/) while Evan Czaplicki explain this concept in the talk [Let's be mainstream](https://youtu.be/oYk8CKH7OhE).
+[^progressive-disclosure-of-complexity]: Chris Krycho talks about it in the article [Progressive Disclosure of Complexity and Typed FP Languages](https://v5.chriskrycho.com/journal/progressive-disclosure-of-complexity-and-typed-fp-languages/) while Evan Czaplicki explains this concept in the talk [Let's be mainstream](https://youtu.be/oYk8CKH7OhE).
 
 Moreover, during its evolution, features that created confusion and were not important have been removed or modified, transforming it into a lean language that is easy to learn.[^features-not-added]
 
@@ -422,7 +424,7 @@ Best practices should be automated as much as possible and the Elm compiler is p
 
 The compiler guarantees that all edge cases are covered, something difficult to achieve with hand-made unit tests. Another advantage of the compiler static analysis is that it is extremely fast and can provide the exact location of errors.[^elm-review]
 
-[^elm-review]: To push the static analysis further, there are other tools that can be used, like [Elm-Review](https://package.elm-lang.org/packages/jfmengels/elm-review/latest/).
+[^elm-review]: To push the static analysis further, other tools can be used, like [Elm-Review](https://package.elm-lang.org/packages/jfmengels/elm-review/latest/).
 
 ![John Carmack on Elm Errors](./images/john-carmack-on-errors.png)
 _John Carmack's comment about the Elm error messages._
@@ -489,7 +491,7 @@ If we zoom in on the `Elm` block in the diagram above, this is what we would see
 ![The Elm Architecture, animated](./images/the-elm-architecture-animation.gif)
 _How the Elm runtime system[^elm-runtime] orchestrates the infinite loop[^the-game-loop] of an Elm application using The Elm Architecture._
 
-[^elm-runtime]: When we write Elm code, 100% of our code is pure so there are no side effects. But without side effects, our application would just be a boring silent empty screen. The **Elm runtime system** is the part of the code that is in charge of the side-effects. In our code, we just request these side effects to be done and we wait for the outcomes. Examples of side effects are HTTP requests or DOM modifications. How do we do side effects while remaining pure? In Elm, there are two ways. For things like HTTP requests, for example, there are commands (`Cmd`), that are instructions, in the form of data, that we send as requests to the Elm runtime system. For changing the DOM, the way to do side effects is to take the entire state of the world as an argument and return a new version of it. So we can change the world (side effects) by remaining pure. The world in our case is the **Model** and the function that does that is the **update** function: `update: Msg -> Model -> (Model, Cmd msg)` (see [The Elm Architecture](#12-the-elm-architecture) for more details). The video [What is IO monad?](https://youtu.be/fCoQb-zqYDI?t=42) by Alexey Kutepov explains this concept in general terms.
+[^elm-runtime]: When we write Elm code, 100% of our code is pure so there are no side effects. But without side effects, our application would just be a boring silent empty screen. The **Elm runtime system** is the part of the code that is in charge of the side effects. In our code, we just request these side effects to be done and we wait for the outcomes. Examples of side effects are HTTP requests or DOM modifications. How do we do side effects while remaining pure? In Elm, there are two ways. For things like HTTP requests, for example, there are commands (`Cmd`), that are instructions, in the form of data, that we send as requests to the Elm runtime system. For changing the DOM, the way to do side effects is to take the entire state of the world as an argument and return a new version of it. So we can change the world (side effects) by remaining pure. The world in our case is the **Model** and the function that does that is the **update** function: `update: Msg -> Model -> (Model, Cmd msg)` (see [The Elm Architecture](#12-the-elm-architecture) for more details). The video [What is IO monad?](https://youtu.be/fCoQb-zqYDI?t=42) by Alexey Kutepov explains this concept in general terms.
 [^the-game-loop]: If you are familiar with game development you can find similarities between **The Elm Architecture** and **The Game Loop**. The main difference is that usually games don't wait for something to happen, but the loop keeps running all the time. When we develop games in Elm, we do the same using [onAnimationFrame](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Events#onAnimationFrame) so that the loop keeps running with a usual speed of 60 times per second.
 
 The **Elm runtime system**:
@@ -508,7 +510,7 @@ The **Elm runtime system**:
 
 ## 13. The Elm debugger
 
-The built-in **Elm debugger**[^elm-debugger] is a useful tool to debug Elm applications. It shows the state of the application and keeps track of all the messages fired during the application's life. It also gives you the ability to go back in time, crating an immediate connection to what we are coding.[^elm-debugger-example]
+The built-in **Elm debugger**[^elm-debugger] is a useful tool to debug Elm applications. It shows the state of the application and keeps track of all the messages fired during the application's life. It also gives you the ability to go back in time, creating an immediate connection to what we are coding.[^elm-debugger-example]
 
 [^elm-debugger]: More about the **Elm debugger** in [The Perfect Bug Report](https://elm-lang.org/news/the-perfect-bug-report)
 [^elm-debugger-example]: The **Elm debugger** is usually disabled for applications that are released in production, but you can find an example of it in [elmjapan.org](https://elmjapan.org/) where it has been kept active for educational purposes.
@@ -520,7 +522,7 @@ _The Elm debugger. From the left to the right: the application; the history of m
 
 This is similar to what Bret Victor showed in his famous talk "Inventing on Principle."[^bret-victor]
 
-[^bret-victor]: Bret Victor is an interface designer, computer scientist, and electrical engineer known for his talks on the future of technology. In his talk, [Inventing on Principle](https://youtu.be/PUv66718DII?t=762), Victor showed his vision about fixing the fundamentally broken way we make software. The vision, is short, is that "Creators need an immediate connection to what they’re creating." More about this in [The Coming Software Apocalypse](https://www.theatlantic.com/technology/archive/2017/09/saving-the-world-from-code/540393/) by James Somers.
+[^bret-victor]: Bret Victor is an interface designer, computer scientist, and electrical engineer known for his talks on the future of technology. In his talk, [Inventing on Principle](https://youtu.be/PUv66718DII?t=762), Victor showed his vision about fixing the fundamentally broken way we make software. The vision, in short, is that "Creators need an immediate connection to what they’re creating." More about this in [The Coming Software Apocalypse](https://www.theatlantic.com/technology/archive/2017/09/saving-the-world-from-code/540393/) by James Somers.
 
 [Index](#index) | [Top](#top)
 
@@ -641,7 +643,7 @@ In the Elm community, writing **readable code is considered a high priority**. T
 
 Elm has an ML-style syntax, in contrast to the C-style syntax of Java, JavaScript, and other popular languages. It was a choice that traded familiarity with convenience and fitness,[^ml-style] as sometimes _familiarity hides complexity_.[^familiarity-hides-complexity]
 
-[^familiarity-hides-complexity]: Rich Hickey mention the idea that _familiarity hides complexity_ in his talk [Are we there yet?](https://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey/) (11th minute) where he advocated for the reexamination of the basic principles of OOP.
+[^familiarity-hides-complexity]: Rich Hickey mentions the idea that _familiarity hides complexity_ in his talk [Are we there yet?](https://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey/) (11th minute) where he advocated for the reexamination of the basic principles of OOP.
 [^ml-style]: Evan Czaplicki explains the decision of using the ML-style syntax throughout the video [Convergent Evolution](https://youtu.be/jl1tGiUiTtI?t=384).
 
 What we like about this syntax is its simplicity. Compared to C-style syntax, most parentheses, keywords, and punctuations are not necessary.
@@ -765,9 +767,7 @@ In our largest project, we are in the middle of a third major refactoring iterat
 
 Hiring for a language that is not mainstream has some downsides. For example, not many developers probably know it fluently.
 
-However, the feeling, from engaging in the Elm slack channel, is that there are probably now more developers that know Elm compared to the number of available Elm job positions, making it possible to find developers that already master it.
-
-In any case, **learning Elm is a fast process**. As already stated, our experience is that it takes a couple of weeks to be productive and a couple of months to master it.
+However, **learning Elm is a fast process**. As already stated, our experience is that it takes a couple of weeks to be productive and a couple of months to master it.
 
 As a result, rather than asking “How many applicants know X?” we should better ask: “What does, knowing X, tell us about an applicant?” focusing on engineers that have the passion and are capable of adapting and learning new concepts.
 
@@ -784,7 +784,7 @@ The Elm compiler can apply several optimizations specific to the fact that Elm i
 - The performances of Elm applications are among the fastest. Internally Elm uses the concept of a virtual DOM, similar to React. The speed of the Elm virtual DOM is comparable to Svelte, which uses a different mechanism to update the DOM.[^performances]
 - The Elm compiler produces smaller assets compared to other frameworks. Among the various optimizations to achieve this result, there is the **dead code elimination** with granularity to the single function that works across the entire ecosystem. If you import a large package and use only one of the functions contained, the compiler will ensure that only that function ends up in your generated code.[^tree-shaking]
 
-[^performances]: Elm and Svelte performances are [neck and neck](https://twitter.com/sveltejs/status/1138094066867089408) as it can be verified from the [JavaScript framework benchmark](https://github.com/krausest/js-framework-benchmark). [This thread](https://discourse.elm-lang.org/t/can-the-compiler-skip-virtual-dom/6300) has an interesting conversation about web frameworks performances.
+[^performances]: Elm and Svelte performances are [neck and neck](https://twitter.com/sveltejs/status/1138094066867089408) as it can be verified from the [JavaScript framework benchmark](https://github.com/krausest/js-framework-benchmark). [This thread](https://discourse.elm-lang.org/t/can-the-compiler-skip-virtual-dom/6300) has an interesting conversation about web frameworks' performances.
 [^tree-shaking]: The equivalent of **dead code elimination**, in JavaScript, is called [tree shaking](https://webpack.js.org/guides/tree-shaking/) and it usually works at the granularity of modules instead of single functions. [Other optimizations contribute to the small assets of Elm](https://elm-lang.org/news/small-assets-without-the-headache). Our largest application of ~66,500 lines of Elm code is 188kb zipped, including the SVG assets, the extra JavaScript, and translations in several languages.
 
 The Elm compiler per se is also fast. Our bigger codebase contains ~66,500 lines of Elm code, and it compiles incrementally in 0.3 seconds and from scratch in 2.5 seconds.[^compiler-performances]
@@ -799,7 +799,7 @@ The Elm compiler per se is also fast. Our bigger codebase contains ~66,500 lines
 
 Elm is not a good fit to build static websites that are mostly content-driven. In these cases, an old server-side rendered website can be a better option.
 
-On the other side, if you get to like Elm, it is hard to go back to plain JavaScript/HTML/CSS, so we experimented with Elm for static websites. There are several tools for static site generation. We used _Elm-Starter_,[^elm-starter] a library that transforms an Elm website into a server-side rendered PWA that is also installable, works off-line, and works without JavaScript.
+On the other side, if you get to like Elm, it is hard to go back to plain JavaScript/HTML/CSS, so we experimented with Elm for static websites. There are several tools for static site generation. We used _Elm-Starter_,[^elm-starter] a library that transforms an Elm website into a server-side rendered PWA that is also installable, works off-line and works without JavaScript.
 
 [^elm-starter]: These are the most common tools to generate static sites in Elm: [Elm-Pages](https://package.elm-lang.org/packages/dillonkearns/elm-pages/latest/) | [ElmStatic](https://github.com/alexkorban/elmstatic) | [Elm-Starter](https://github.com/lucamug/elm-starter).
 
@@ -844,7 +844,7 @@ Most of the Elm public conversation happens in the Elm Slack channel[^slack] tha
 
 [^slack]: The [Elm Slack channel](https://elmlang.herokuapp.com/) counts around 20,000 members. Another platform used by the Elm community is [discourse.elm-lang.org](https://discourse.elm-lang.org/). There is also a channel on the [Reddit website](https://www.reddit.com/r/elm/) that tends to be unpleasant so not many Elm developers usually comment there.
 
-Also, another consequence is that the quantity of materials in the Stack Overflow website is limited. This fact is not always as bad as it seems.
+Also, another consequence is that the quantity of materials on the Stack Overflow website is limited. This fact is not always as bad as it seems.
 
 Stack Overflow sometimes suffers from having information that is not updated or still "old school," making it useless and occasionally even harmful.
 
@@ -852,7 +852,7 @@ In the Elm Slack channel, information is always fresh, and the community is very
 
 Other times, resources are scattered and are not published with good SEO. Take, for example, this [valuable list of hints](https://github.com/elm/compiler/blob/master/hints/) that seldom appear in Google results.[^awesome-elm]
 
-[^awesome-elm]: There is no lack of good resources to learn Elm. A good aggregator for these resources in the [Awesome-Elm](https://github.com/sporto/awesome-elm/blob/master/README.md).
+[^awesome-elm]: There is no lack of good resources to learn Elm. A good aggregator for these resources is the [Awesome-Elm](https://github.com/sporto/awesome-elm/blob/master/README.md).
 
 [Index](#index) | [Top](#top)
 
