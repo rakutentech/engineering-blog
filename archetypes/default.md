@@ -7,6 +7,7 @@ timeToRead: 5
 authors:
   - Rakuten Taro
 draft: true
+license: cc-by
 ---
 
 Some default content

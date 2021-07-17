@@ -211,9 +211,6 @@ li
     margin-left: 0
     margin-top: 10px
 
-.article-meta
-  align-items: normal
-
 /* Fix github icon in footer
 .social-icon-outer
   width: auto
@@ -256,9 +253,47 @@ a:hover, a:focus
   .footer-container
     padding-bottom: 0
 
+/* Fix misalignment of footer columns */
+.footer-container
+  align-items: start !important
+
 .article-metadata .draft
   color: red
   border-radius: 1em
   background: #ffdede
   padding: 0.3em 0.5em
 
+/* CC-BY Icons */
+@font-face
+  font-family: 'fontello'
+  src: url("../fonts/cc-fontello.woff2") format("woff2")
+  font-weight: normal
+  font-style: normal
+
+.license-icons
+  padding: 1em 0 .5em
+  a
+    text-decoration: none
+    color: inherit
+  i:before
+    font-family: "fontello"
+    font-style: normal
+    font-weight: normal
+    speak: never
+    display: inline-block
+    text-decoration: inherit
+    width: 1em
+    margin-right: .2em
+    text-align: center
+    font-variant: normal
+    text-transform: none
+    line-height: 1em
+    font-size: 3rem
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+.cc-icon-cc:before
+  content: '\e800'
+
+.cc-icon-cc-by:before
+  content: '\e801'
