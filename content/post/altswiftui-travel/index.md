@@ -22,20 +22,20 @@ For more info see: https://github.com/rakutentech/AltSwiftUI
 
 ## A peak into code
 
-Other than some small differences, the code structure is highly similar to that of regular SwiftUI code. Of the main things we can point out, AltSwiftUI doesn't use associated types in views, meaning that is not necessary to use opaque return types (`some View`).
+Other than some small differences, the code structure is highly similar to that of regular SwiftUI code. Of the main things we can point out, AltSwiftUI doesn't use associated types in views, meaning that it is not necessary to use opaque return types (`some View`).
 
 ![AltSwiftUI code sample](altswiftui-code-sample.png)
 
 ## Extended features
 
-AltSwiftUI interface is inspired by SwiftUI, but we needed more features and capabilities than originally offered. So we introduced extra functionalities in AltSwiftUI.
+AltSwiftUI interface is inspired by SwiftUI, but we needed more features and capabilities than originally offered, so we introduced extra functionalities in AltSwiftUI.
 
 For example, we needed deeper integrations with List and ScrollView interactions, so there are methods like `ScrollView.scrollOffset` and `List.onDragStarted`. There are also multiple small additions to some of the views and modifiers, and this list will keep growing in the future. To identify these features, you can read the source documentation during development or at https://altswiftui.com.
 
 
 ## AltSwiftUI in Rakuten Travel
 
-AltSwiftUI’s development started at the end of 2019, with the main purpose of taking on new projects while renewing the way we design software, improve the speed and quality of our development, and be more futureproof. During this journey, we tackled multiple challenges by comparing what SwiftUI originally offers with what our app needed, and the open source nature of this framework allowed us to improve it by adding features that would allow us to meet our app expectations. 
+AltSwiftUI’s development started at the end of 2019, with the main purpose of taking on new projects while renewing the way we design software, improve the speed and quality of our development, and be more futureproof. During this journey, we tackled multiple challenges by comparing what SwiftUI originally offered with what our app needed, and the open source nature of this framework allowed us to improve it by adding features that would allow us to meet our app expectations. 
 
 _Rakuten Travel Premium Club_ is an invitation only app built with AltSwiftUI.
 
@@ -43,7 +43,7 @@ _Rakuten Travel Premium Club_ is an invitation only app built with AltSwiftUI.
 
 One of the pillars that gave us a strong advantage in terms of design and development, is the ability to simplify our app’s architecture. In contrast to using design patterns such as MVVM or VIPER, which usually tend to increase the number of things a developer needs to worry about, we could transition to a MV (model view) design with AltSwiftUI at its core. 
 
-The core principles of this MV design is that developers should focus more on what they want to build, rather than how. By clearly delimiting what is part of the UI (view layer) and what is part of our business logic/data (model layer), we were able to also easily visualize our tasks and improve development efficiency.
+The core principle of this MV design is that developers should focus more on what they want to build, rather than how. By clearly delimiting what is part of the UI (view layer) and what is part of our business logic/data (model layer), we were able to also easily visualize our tasks and improve development efficiency.
 
 ![MV architecture](mv-architecture.png)
 
@@ -70,7 +70,7 @@ __Cons__
 - We need to maintain AltSwiftUI on top of our regular tasks, which demands more effort from our part.
 - Our developers need to learn the combined features of SwiftUI and AltSwiftUI.
 
-It’s hard to tell what will happen in the future some years from now. By working with the same design philosophy that accompanies the emerging SwiftUI framework, and also an extremely similar code structure, we improve our chances for any future transition to be less costly and smoother.
+It’s hard to tell what will happen in some years from now. By working with the same design philosophy that accompanies the emerging SwiftUI framework and also an extremely similar code structure, we improve our chances for any future transition to be less costly and smoother.
 
 ## AltSwiftUI’s future
 
