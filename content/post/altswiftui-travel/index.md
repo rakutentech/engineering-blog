@@ -5,8 +5,12 @@ excerpt: "What is AltSwiftUI and how we introduced it in Rakuten Travel"
 timeToRead: 4
 authors:
    - Kevin Wong
+hero: /post/altswiftui-travel/hero.png
 draft: true
+license: cc-by
 ---
+
+_Background image by [Dan Roizer](https://unsplash.com/@danroizer) under the [Unsplash license](https://unsplash.com/license)_
 
 SwiftUI, introduced by Apple in 2019, allows developers to create apps with declarative UI programming and state management, which greatly helps to improve development speed and quality. However, the framework is locked at the iOS 13 SDK, and every new improvement iteration to this new framework will push up this restriction to the latest SDK (iOS 14, and so on).
 
@@ -24,7 +28,7 @@ Other than some small differences, the code structure is highly similar to that 
 
 ## Extended features
 
-Even though AltSwiftUI has a very similar interface and features compared to SwiftUI, because we needed more features and capabilities than originally offered in order to develop iOS apps, AltSwiftUI introduces extra functionalities.
+AltSwiftUI interface is inspired by SwiftUI, but we needed more features and capabilities than originally offered. So we introduced extra functionalities in AltSwiftUI.
 
 For example, we needed deeper integrations with List and ScrollView interactions, so there are methods like `ScrollView.scrollOffset` and `List.onDragStarted`. There are also multiple small additions to some of the views and modifiers, and this list will keep growing in the future. To identify these features, you can read the source documentation during development or at https://altswiftui.com.
 
@@ -47,24 +51,24 @@ The view layer consists of components that interact with the user. This includes
 
 The model layer consists of operations that retrieve, process and store data that are part of our business domain. At the same time, it exposes this data to the view layer as transparently as possible for a simple and smooth integration.
 
-The framework’s ability to integrate view state with data, including automatic updates, is what allow us to remove intermediate layers that introduce complexity and would often be the cause of bugs. Instead, the framework handles these intermediate layers without needing to add extra code.
+The framework’s ability to integrate view state with data, including automatic updates, is what allows us to remove intermediate layers of complexity that often cause bugs. Instead, the framework handles these intermediate layers without any extra code.
 
 ---
 
-These are the good and the bad from choosing this approach:
+These are the pros and cons of using this approach that we observed in our development team:
 
 __Pros__
 
-- Once we got used to it, our development speed increased drastically.
-- We could more easily improve our app visuals and interactions.
-- We could make changes on demand in AltSwiftUI depending on the app needs, without needing to worry about OS deployment version.
-- It became easier to request UI improvements to other developers during peer review and testing due to simpler code.
-- We could adventure with more ease of mind to prototype new and original features.
+- Our development speed is much faster.
+- We can more easily improve our app visuals and interactions.
+- We don't need to worry about OS deployment versions when adding features.
+- We can more easily request UI improvements to other developers during peer review due to reduced cost.
+- We can prototype and add original features more quickly.
 
 __Cons__
 
-- Continuously work to improve AltSwiftUI on top of our regular tasks demanded effort from our part (specially at the start of the framework's development).
-- It required our developers to learn the combined features of SwiftUI and AltSwiftUI.
+- We need to maintain AltSwiftUI on top of our regular tasks, which demands more effort from our part.
+- Our developers need to learn the combined features of SwiftUI and AltSwiftUI.
 
 It’s hard to tell what will happen in the future some years from now. By working with the same design philosophy that accompanies the emerging SwiftUI framework, and also an extremely similar code structure, we improve our chances for any future transition to be less costly and smoother.
 
