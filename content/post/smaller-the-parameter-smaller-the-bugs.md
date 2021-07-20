@@ -33,18 +33,18 @@ book = Book.new("Ruby is the best", "2020")
 book.summary("Bater", "Chen")
 => "Ruby is the best - Chen, Bater (2020)"
 ```
-We have a book class, it has two attributes, title, and publish_year. The `initialize` method would be called when we new a book object. Book class only has one instance method called `summary`, it needs two parameters, first_name and last_name. In Ruby, when we define the `attr_reader` as the attribute of the object, it will create the read method automatically. So we can call the instance variable directly by `title` to get `@title` return, same as publish_year.
+We have a book class, it has two attributes, title, and publish_year. The `initialize` method would be called when we `new` a book object. Book class only has one instance method called `summary`, it needs two parameters, first_name and last_name. In Ruby, when we define the `attr_reader` as the attribute of the object, it will create the read method automatically. So we can call the instance variable directly by `title` to get `@title` return, same as publish_year.
 
 This simple method works fine but is not good enough. Now we want to do some refactoring on it.
 
 ## The good code should be small and simple
 What is the good code? This question might be hard to answer, but I would say **the good code should be small and simple.** In this article, let's focus on making the parameter smaller.
 
-Generally speaking, **one parameter is better than two, and no parameter is better than one.** The fact of the parameter is, it cost time to read and understand the business logic, and time is always expensive in all projects. We spent around 70% of the time reading the existing code, but only 30% is actually writing. If we can save some time from reading the code, not only from literally reading but also from understanding the spec and logic, which means we can develop efficiently.
+Generally speaking, **one parameter is better than two, and no parameter is better than one.** The fact of the parameter is, it costs time to read and understand the business logic, and time is always expensive in all projects. We spent around 70% of the time reading the existing code, but only 30% is actually writing. If we can save some time from reading the code, not only from literally reading but also from understanding the spec and logic, which means we can develop efficiently.
 
 Secondly, when **the code is short, the bugs are nowhere to hide.** Parameter causes bugs easily because it needs extra concern. Reducing parameters can make the method more clear, and show the intention explicitly. It can help us to maintain the code easily. When we try to reduce the parameter, we are actually trying to reduce the potential bugs at the same time.
 
-Now we know it's better to reduce the parameter, but how to do it? Let's check the parameter again.
+Now we know it's better to reduce the parameter, but how could we do it? Let's check the parameter again.
 
 ## Data clump
 When we find out the parameters are **a group of data that always come together**, and it would make no sense when missing one of them, we can call it a set of **Data Clump**. For example, a pair of start date and end date, or in this example, first name and last name.
@@ -119,7 +119,7 @@ def cover(author)
   "#{title}\n\n\n#{author.full_name}"
 end
 ```
-The cover method generates a string that has the book title and author's full name inside. After the refactoring, we can reuse the author's full name method again. Once we build a good pattern, the new code can follow it easily and keep the project clean. But if you didn't pay attention, the code getting rust rapidly and becomes the developer's nightmare. 
+The cover method generates a string that has the book title and author's full name inside. After the refactoring, we can reuse the author's full name method again. Once we build a good pattern, the new code can follow it easily and keep the project clean. But if you didn't pay attention, the code would get rust rapidly and becomes the developer's nightmare. 
 
 You may also notice that both `summary` and `cover` need the same parameter, author, it's the smell of refactoring. The author information should be one of the attributes of the book object, instead of passing as a parameter when we call the book method. So we can refactor the book class again.
 
@@ -202,11 +202,12 @@ def summary
   "#{title} - #{author.full_name} (#{publish_year})"
 end
 ```
-Obviously, the code quality has a huge improvement after refactoring. 
+Obviously, the code quality has a huge improvement after refactoring.
+
 ## Loose coupling
 Before we finish this refactoring and send the PR to someone, let's check the code again, does it clean enough?
 
-The code seems short and simple, but this method still depends on the author class. In other words, the `summary` method need to know the author object has a `full_name` method, we could say the book class still couple with author class. In this case, maybe it's hard to notice the cost of coupling, let's imagine after few years later, the `summary` method might become more complicated:
+The code seems short and simple, but this method still depends on the author class. In other words, the `summary` method needs to know the author object has a `full_name` method, we could say the book class still couple with author class. In this case, maybe it's hard to notice the cost of coupling, let's imagine a few years later, the `summary` method might become more complicated:
 
 #### Few years later
 ```rb
@@ -217,9 +218,9 @@ def summary
   return final_result
 end
 ```
-The disadvantage of coupling is that when one class needs to change, you need to change others as well. For example, one day we need to rename the full name method or adding more parameters to it, we need to modify the book class at the same time, which we don't like.
+The disadvantage of coupling is that when one class needs to change, you need to change others as well. For example, one day we need to rename the full name method or add more parameters to it, we need to modify the book class at the same time, which we don't like.
 
-The bad news is, in the real world it's almost impossible to remove all the coupling between each object, but we can at least reduce the impact by segregate and highlight the dependence. 
+The bad news is, in the real world it's almost impossible to remove all the coupling between each object, but we can at least reduce the impact by segregating and highlighting the dependence. 
 
 ```rb
 def summary
