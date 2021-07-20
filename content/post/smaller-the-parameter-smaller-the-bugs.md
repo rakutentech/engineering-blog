@@ -233,7 +233,7 @@ end
 After this refactoring, the `summary` method 100% calling from the book object itself. The book class still has the coupling with the author class, but it's obvious and easy to maintain. If we only consider the example case, you might wonder is that a little bit over design? Well, I would say that a good pattern is never too early. Now we can push the PR confidently and enjoy the holiday.
 
 ## Conclusion
-The good code should be small and simple, of course, the parameter is not the only place we can do our effort to reduce the size. During the refactoring, don't forget to confirm the result by unit test to make sure the final behavior would be the same. People around you may think that it would be time-wasting work because the final behavior remains the same even though developers spent a lot of time on it. But there's the value of code quality. I believe it would perform in development speed and product stability in the long term.
+Good code should be small and simple. Of course, the parameter is not the only place we can place our effort in to reducing its size. During refactoring, don't forget to confirm the result by unit testing to make sure the final behavior is consistent. People around you may think that it would be time-wasting work because the final behavior remains the same even though developers spent a lot of time on it. But there's the value of code quality. I believe this line of thinking would help you perform well in development speed and product stability in the long term.
 
 I hope this small example can convince you this refactoring skill can benefit your coding life. If not, please waiting for my next blog and give me another chance, see you next time.
 
