@@ -10,7 +10,7 @@ draft: true
 ---
 When I review code, I sometimes notice that there is room to squash parameters of methods, yet, not many developers are aware of this when they design code. From my coding experience, we can write code efficiently and reduce bug rates by putting in effort in reducing the parameters from our methods. Unless your manager still evaluates output by lines of code, you should definitely try these tips in your daily coding life.
 
-So today, I will share how to do it with OOP (object-oriented programming) design, and explain where the magic power comes from.
+So today, I will share how to do it with OOP (object-oriented programming) design, and explain where this magic power comes from.
 
 Let's start with a small example, the demo code was written in Ruby, but don't worry. The ruby code is so friendly that once you have some OOP background, I believe you can understand the code right away. 
 
