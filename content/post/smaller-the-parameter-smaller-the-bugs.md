@@ -2,7 +2,7 @@
 title: "Smaller the Parameter, Smaller the Bugs"
 date: 2021-07-13T22:57:39+09:00
 hero: /images/hero-5.jpg
-excerpt: "Some hints for coding efficiently and reducing the bugs"
+excerpt: "Some tips for coding efficiently and reducing bugs"
 timeToRead: 10
 authors:
   - Bater
