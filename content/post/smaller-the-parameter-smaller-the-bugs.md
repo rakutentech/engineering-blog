@@ -235,7 +235,7 @@ After this refactoring, the `summary` method 100% calling from the book object i
 ## Conclusion
 Good code should be small and simple. Of course, the parameter is not the only place we can place our effort in to reducing its size. During refactoring, don't forget to confirm the result by unit testing to make sure the final behavior is consistent. People around you may think that it would be time-wasting work because the final behavior remains the same even though developers spent a lot of time on it. But there's the value of code quality. I believe this line of thinking would help you perform well in development speed and product stability in the long term.
 
-I hope this small example can convince you this refactoring skill can benefit your coding life. If not, please waiting for my next blog and give me another chance, see you next time.
+I hope this small example can convince you this refactoring skill can benefit your coding life. If not, please wait for my next blog and give me another chance. See you next time.
 
 [1]: https://en.wikipedia.org/wiki/Duck_typing
 [2]: https://en.wikipedia.org/wiki/Law_of_Demeter
