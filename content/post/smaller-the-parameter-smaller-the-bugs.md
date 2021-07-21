@@ -35,7 +35,7 @@ book.summary("Bater", "Chen")
 ```
 We have a book class, it has two attributes, title, and publish_year. The `initialize` method would be called when we `new` a book object. Book class only has one instance method called `summary`, it needs two parameters, first_name and last_name. In Ruby, when we define the `attr_reader` as the attribute of the object, it will create the read method automatically. So we can call the instance variable directly by `title` to get `@title` return, same as publish_year.
 
-This simple method works fine but is not good enough. Now we want to do some refactoring on it.
+This simple method works fine but is not good enough. Let's refactor it.
 
 ## The good code should be small and simple
 What is the good code? This question might be hard to answer, but I would say **the good code should be small and simple.** In this article, let's focus on making the parameter smaller.
