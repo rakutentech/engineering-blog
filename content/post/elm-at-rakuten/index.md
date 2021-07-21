@@ -6,7 +6,7 @@ excerpt: "Our story of adopting the Elm language in Rakuten. The lessons we lear
 timeToRead: 5
 authors:
   - Luca Mugnaini
-draft: false
+draft: true
 seo:
   canonical: https://dev.to/lucamug/elm-6m8
 ---
@@ -378,7 +378,7 @@ Another example of enforced discipline is that it is not possible to include Jav
 
 ## 9. Learnability
 
-Elm is beginner-friendly. It doesn't mean that Elm is not sophisticated enough. It means that it is well designed. There are both simple constructs for beginners and complex constructs for masters. Complexity gets introduced gradually.[^introduced-gradually] This concept is sometimes called "gradual learning" or "progressive disclosure of complexity".[^progressive-disclosure-of-complexity]
+Elm is beginner-friendly. It doesn't mean that Elm is not sophisticated. It means that it is well designed. There are both simple constructs for beginners and complex constructs for masters. Complexity gets introduced gradually.[^introduced-gradually] This concept is sometimes called "gradual learning" or "progressive disclosure of complexity".[^progressive-disclosure-of-complexity]
 
 [^introduced-gradually]: For example _sandbox_, _element_, _document_, and _application_ in [Elm-Browser](https://package.elm-lang.org/packages/elm/browser/latest/Browser); _get_, _post_, and _request_ in [Elm-HTTP](https://package.elm-lang.org/packages/elm/http/latest/Http); _picture_, _animation_, and _game_ in [Elm-Playground](https://package.elm-lang.org/packages/evancz/elm-playground/latest/Playground); etc.
 [^progressive-disclosure-of-complexity]: Chris Krycho talks about it in the article [Progressive Disclosure of Complexity and Typed FP Languages](https://v5.chriskrycho.com/journal/progressive-disclosure-of-complexity-and-typed-fp-languages/) while Evan Czaplicki explains this concept in the talk [Let's be mainstream](https://youtu.be/oYk8CKH7OhE).
@@ -426,7 +426,7 @@ The compiler guarantees that all edge cases are covered, something difficult to 
 
 [^elm-review]: To push the static analysis further, other tools can be used, like [Elm-Review](https://package.elm-lang.org/packages/jfmengels/elm-review/latest/).
 
-![John Carmack on Elm Errors](./images/john-carmack-on-errors.png)
+[![John Carmack on Elm Errors](./images/john-carmack-on-errors.png)](https://twitter.com/id_aa_carmack/status/735197548034412546)
 _John Carmack's comment about the Elm error messages._
 
 The Elm compiler produces **state-of-the-art error messages** and its high standard of quality is now an inspiration for other designers of languages too.[^error-messages]
@@ -476,9 +476,9 @@ Considering how influential Elm is and the general trend toward Functional Progr
 [^unidirectional-data-flow]: The Elm Architecture is based on [**unidirectional data flow**](https://youtu.be/jl1tGiUiTtI?t=470) (a.k.a. **one-way data binding**) like React, in contrast to the **bidirectional data flow** (a.k.a. **two-way data binding**) of frameworks like Angular, Vue, and Svelte ([in Svelte two-way binding can be disabled](https://github.com/sveltejs/svelte/issues/54)). There have been issues with two-way data binding. For example, the many-to-many dependencies between the view and the model can create an infinite loop of cascading updates. Another issue is the lack of control of the change detection mechanism. It is an implicit behavior that is not easy to control. Unidirectional data flow tends to be more predictable.
 
 ![The Elm Architecture, animated](./images/the-elm-architecture.svg)
-_A simple representation of the unidirectional data flows in The Elm Architecture. (Source: The Elm Guide) [^representation-of-unidirectional-flow]_
+_A simple representation of the unidirectional data flows in The Elm Architecture. (Source: The Elm Guide) .[^representation-of-unidirectional-flow] Licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) [license](https://github.com/evancz/guide.elm-lang.org/blob/master/LICENSE)._
 
-[^representation-of-unidirectional-flow]: The illustration **A simple representation of the Elm Architecture** is from the [Elm Guide](https://guide.elm-lang.org/architecture/) used under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) [license](https://github.com/evancz/guide.elm-lang.org/blob/master/LICENSE).
+[^representation-of-unidirectional-flow]: The illustration **A simple representation of the Elm Architecture** is from the [Elm Guide](https://guide.elm-lang.org/architecture/).
 
 There are three building blocks in The Elm Architecture:
 
@@ -765,7 +765,7 @@ In our largest project, we are in the middle of a third major refactoring iterat
 
 ## 17. Hiring
 
-Hiring for a language that is not mainstream has some downsides. For example, not many developers probably know it fluently.
+Hiring for a language that is not mainstream has some downsides. For example, not many developers know it fluently.
 
 However, **learning Elm is a fast process**. As already stated, our experience is that it takes a couple of weeks to be productive and a couple of months to master it.
 
@@ -908,7 +908,7 @@ Related to this, Elm is probably not a good fit for short projects that require 
 
 We mentioned some of the benefits of coding with Elm, or with a purely functional language for that matter. We also talked about the main issues.
 
-The benefits are overwhelmingly in the majority, compared to the issues, and this is why we are happy with the choice we made.
+For us the benefits are overwhelming, compared to the issues, and this is why we are happy with the choice we made.
 
 > “Then I came to Functional Programming … and programming was fun again!"
 >
