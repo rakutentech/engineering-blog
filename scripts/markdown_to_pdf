@@ -2,7 +2,7 @@
 
 docker run --rm -u `id -u`:`id -g` \
   --mount "type=bind,src=$(pwd),dst=/pandoc" \
-  pandocker \
+  ghcr.io/rakutentech/pandocker:20210205 \
   -f markdown \
   --resource-path .:./$(dirname $1):./static \
   --include-in-header="scripts/tex/header.tex" \
