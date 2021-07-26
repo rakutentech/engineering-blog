@@ -2,7 +2,7 @@ baseurl: "https://engineering.rakuten.today/"  # Include trailing slash
 languageCode: "en-us"
 title: "Rakuten Engineering Blog"
 pygmentsstyle: 'monokai'
-theme: github.com/forestryio/hugo-theme-novela
+theme: novela
 paginate: 6
 social:
   twitter: "#"

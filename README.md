@@ -18,12 +18,17 @@
    Hugo Static Site Generator v0.78.2/extended darwin/amd64 BuildDate: unknown
    ```
 
-2. [Fork](https://github.com/rakutentech/engineering-blog/fork) & Clone this repository
-3. Run the local server with:
+2. [Fork](https://github.com/rakutentech/engineering-blog/fork)
+3. Clone your repository and initialize its submodules
+   ```
+   > git clone <YOUR GIT REPO CLONE URL>
+   > git submodule update --init --recursive --force
+   ```
+4. Run the local server with:
    ```
    > hugo server
    ```
-4. Browse to the local server URL with your favourite browser.
+5. Browse to the local server URL with your favourite browser.
 
 ### Creating a new blog post
 
