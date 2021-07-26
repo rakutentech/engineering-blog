@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# on pandoc/latex emoji seem to not be installed :(
-# runnig with
-#   --include-in-header="scripts/header.tex" \
-# produces 
-#   ! LaTeX Error: File `xelatexemoji.sty' not found.
-
-docker run --rm --volume "$(pwd):/data" --user `id -u`:`id -g` pandoc/latex \
+docker run --rm -u `id -u`:`id -g` \
+  --mount "type=bind,src=$(pwd),dst=/pandoc" \
+  pandocker \
+  -f markdown \
+  --resource-path .:./$(dirname $1):./static \
+  --include-in-header="scripts/tex/header.tex" \
   --pdf-engine=xelatex --mathjax \
   --highlight-style zenburn \
   --resource-path .:./$(dirname $1):./static \
