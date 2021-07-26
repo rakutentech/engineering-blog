@@ -19,10 +19,9 @@
    ```
 
 2. [Fork](https://github.com/rakutentech/engineering-blog/fork)
-3. Clone your repository and initialize its submodules
+3. Clone your repository and initialize its submodules:
    ```
-   > git clone <YOUR GIT REPO CLONE URL>
-   > git submodule update --init --recursive --force
+   > git clone --recurse-submodules <YOUR GIT REPO CLONE URL>
    ```
 4. Run the local server with:
    ```
