@@ -1,8 +1,12 @@
 #!/bin/bash
 
+DOCKER_IMAGE_NAME='ghcr.io/rakutentech/pandocker:20210205'
+DOCKER_IMAGE_HASH='sha256:524e71eb00494020e421eb138969dc36a4bc5b3712da96edd39a0c158e87a976'
+DOCKER_IMAGE="${DOCKER_IMAGE_NAME}@${DOCKER_IMAGE_HASH}"
+
 docker run --rm -u `id -u`:`id -g` \
   --mount "type=bind,src=$(pwd),dst=/pandoc" \
-  ghcr.io/rakutentech/pandocker:20210205 \
+  $DOCKER_IMAGE \
   -f markdown \
   --resource-path .:./$(dirname $1):./static \
   --include-in-header="scripts/tex/header.tex" \
