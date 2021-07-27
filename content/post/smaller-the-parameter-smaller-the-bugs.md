@@ -17,15 +17,15 @@ Let's start with a small example. The following demo code was written in Ruby, b
 The example story is, we have some books and want to pass the author name as a parameter, and get the book title, author name, and publish date as a summary.
 ```ruby
 class Book
-  attr_reader :title, :publish_year
+  attr_reader :title, :year_published
  
-  def initialize(title, publish_year)
+  def initialize(title, year_published)
     @title = title
-    @publish_year = publish_year
+    @year_published = year_published
   end
  
   def summary(first_name, last_name)
-    "#{title} - #{last_name}, #{first_name} (#{publish_year})"
+    "#{title} - #{last_name}, #{first_name} (#{year_published})"
   end
 end
  
@@ -33,7 +33,7 @@ book = Book.new("Ruby is the best", "2020")
 book.summary("Bater", "Chen")
 => "Ruby is the best - Chen, Bater (2020)"
 ```
-We have a book class, it has two attributes, title, and publish_year. The `initialize` method would be called when we `new` a book object. Book class only has one instance method called `summary`, it needs two parameters, first_name and last_name. In Ruby, when we define the `attr_reader` as the attribute of the object, it will create the read method automatically. So we can call the instance variable directly by `title` to get `@title` return, same as publish_year.
+We have a book class, it has two attributes, title, and year_published. The `initialize` method would be called when we `new` a book object. Book class only has one instance method called `summary`, it needs two parameters, first_name and last_name. In Ruby, when we define the `attr_reader` as the attribute of the object, it will create the read method automatically. So we can call the instance variable directly by `title` to get `@title` return, same as year_published.
 
 This simple method works fine but is not good enough. Now we want to do some refactoring on it.
 
@@ -72,7 +72,7 @@ The Author class also has two attributes, and the author object has one instance
 #### Before
 ```rb
 def summary(first_name, last_name)
-  "#{title} - #{last_name}, #{first_name} (#{publish_year})"
+  "#{title} - #{last_name}, #{first_name} (#{year_published})"
 end
  
 book = Book.new("Ruby is the best", "2020")
@@ -82,7 +82,7 @@ book.summary("Bater", "Chen")
 #### After
 ```rb
 def summary(author)
-  "#{title} - #{author.full_name} (#{publish_year})"
+  "#{title} - #{author.full_name} (#{year_published})"
 end
  
 book = Book.new("Ruby is the best", "2020")
@@ -102,7 +102,7 @@ Now a new requirement is coming, we need to add a new method called `cover`, and
 #### Old pattern without refactoring
 ```rb
 def summary(first_name, last_name)
-  "#{title} - #{last_name}, #{first_name} (#{publish_year})"
+  "#{title} - #{last_name}, #{first_name} (#{year_published})"
 end
  
 def cover(first_name, last_name)
@@ -112,7 +112,7 @@ end
 #### After refactor
 ```rb
 def summary(author)
-  "#{title} - #{author.full_name} (#{publish_year})"
+  "#{title} - #{author.full_name} (#{year_published})"
 end
  
 def cover(author)
@@ -125,16 +125,16 @@ You may also notice that both `summary` and `cover` need the same parameter, aut
 
 ```rb
 class Book
-  attr_reader :title, :publish_year, :author
+  attr_reader :title, :year_published, :author
   
-  def initialize(title, publish_year, author)
+  def initialize(title, year_published, author)
     @title = title
-    @publish_year = publish_year
+    @year_published = year_published
     @author = author
   end
  
   def summary
-    "#{title} - #{author.full_name} (#{publish_year})"
+    "#{title} - #{author.full_name} (#{year_published})"
   end
   
   def cover
@@ -190,16 +190,16 @@ In this design, the existing behavior doesn't change. The default value of the m
 ```rb
 def summary(first_name, last_name, middle_name = nil)
   if middle_name.nil?
-    "#{title} - #{last_name}, #{first_name} (#{publish_year})"
+    "#{title} - #{last_name}, #{first_name} (#{year_published})"
   else
-    "#{title} - #{last_name}, #{middle_name}, #{first_name} (#{publish_year})"
+    "#{title} - #{last_name}, #{middle_name}, #{first_name} (#{year_published})"
   end
 end
 ```
 #### After refactoring
 ```rb
 def summary
-  "#{title} - #{author.full_name} (#{publish_year})"
+  "#{title} - #{author.full_name} (#{year_published})"
 end
 ```
 Obviously, the code quality has a huge improvement after refactoring.
@@ -224,7 +224,7 @@ The bad news is, in the real world it's almost impossible to remove all the coup
 
 ```rb
 def summary
-  "#{title} - #{author_name} (#{publish_year})"
+  "#{title} - #{author_name} (#{year_published})"
 end
 
 def author_name
