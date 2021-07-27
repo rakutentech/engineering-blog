@@ -150,14 +150,14 @@ book.summary
 book.cover
 => "Ruby is the best\n\n\nChen, Bater"
 ```
-Both `summary` and `cover` method's output remain the same, but now we can call it freely without any parameter once the book object is prepared. In ruby, we can skip parentheses if there is no parameter.
+Both `summary` and `cover` methods' output remain the same but now we can call it freely without any parameter once the book object is prepared. In Ruby, we can skip parentheses when there is no parameter.
 
 This example doesn't encourage you to move all the parameters into the object attributes, it depends on the domain know-how. We can do it because it makes sense for a book object to having an author as an attribute in this case. It may get worse if we try to put the wrong data as the object attribute.
 
 ## Open-closed principle
-Reducing the parameter from two to zero is not the only benefit we got from this refactoring, this new design is open for extension but closed for modification. It follows the [open-closed principle][3].
+When we reducing our parameters from two to zero, our design is now open for extension but closed for modification. This is inline with the [open-closed principle][3].
 
-Now we have a new requirement coming again, some authors have the middle name. In the new version, it would be very easy to adapt to the change, we don't need to touch the book class anymore. The new author class would refactor like this:
+Let's say we have a new requirement again, this time, some authors now have a middle name. In this new version, it would be very easy to adapt our code because we don't need to touch the book class anymore. The new author class would refactored like this:
 
 ```rb
 class Author
@@ -186,7 +186,7 @@ robert = Author.new("Robert", "Kiyosaki", "T")
 Book.new("Rich Dad, Poor Dad", "1997", robert).summary
 => "Rich Dad, Poor Dad - Kiyosaki, T, Robert (1997)"
 ```
-In this design, the existing behavior doesn't change. The default value of the middle name is `nil` (Null) because in most cases we can skip it, and we won't break anything when the existing code tries to create a new author with only two parameters. The author class is open for extension and the book class is closed for modification in this case. Without this refactoring, we need to touch on both `summary` and `cover` methods, and the parameters increase from two to three. Let's compare the code before and after the refactoring again:
+In this design, the existing behavior doesn't change. The default value of the middle name is `nil` (also known as Null in other languages) because in most cases we can skip it and we won't break anything when the existing code tries to create a new author with only two parameters. The author class is open for extension and the book class is closed for modification in this case. Without refactoring, we need to touch upon both the `summary` and `cover` methods, causing the parameters to increase from two to three. Let's compare the code before and after, again:
 #### Old pattern without refactoring
 ```rb
 def summary(first_name, last_name, middle_name = nil)
@@ -206,7 +206,7 @@ end
 Obviously, the code quality has a huge improvement after refactoring.
 
 ## Loose coupling
-Before we finish this refactoring and send the PR to someone, let's check the code again, does it clean enough?
+Before we finish refactoring and send off this PR to someone, let's check the code again. But is it clean enough?
 
 The code seems short and simple, but this method still depends on the author class. In other words, the `summary` method needs to know the author object has a `full_name` method, we could say the book class still couple with author class. In this case, maybe it's hard to notice the cost of coupling, let's imagine a few years later, the `summary` method might become more complicated:
 
