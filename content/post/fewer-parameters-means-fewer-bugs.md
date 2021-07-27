@@ -33,23 +33,24 @@ book = Book.new("Ruby is the best", "2020")
 book.summary("Bater", "Chen")
 => "Ruby is the best - Chen, Bater (2020)"
 ```
-We have a book class, it has two attributes, title, and year_published. The `initialize` method would be called when we `new` a book object. Book class only has one instance method called `summary`, it needs two parameters, first_name and last_name. In Ruby, when we define the `attr_reader` as the attribute of the object, it will create the read method automatically. So we can call the instance variable directly by `title` to get `@title` return, same as year_published.
+We have a book class. It has two attributes: title, and year_published. The `initialize` method is called when we `new` a book object. Book class only has one instance method called `summary`. It needs two parameters: first_name and last_name. In Ruby, when we define the `attr_reader` as the attribute of the object, it will create the read method automatically. So we can call the instance variable directly by `title` to get `@title` return, same as year_published.
 
 This simple method works fine but is not good enough. Let's refactor it.
 
 ## The good code should be small and simple
-What is the good code? This question might be hard to answer, but I would say **the good code should be small and simple.** In this article, let's focus on making the parameter smaller.
+What is good code? This question might be hard to answer, but I would say **good code should be small and simple.** In this article, let's focus on making the parameters smaller.
 
-Generally speaking, **one parameter is better than two, and no parameter is better than one.** The fact of the parameter is, it costs time to read and understand the business logic, and time is always expensive in all projects. We spent around 70% of the time reading the existing code, but only 30% is actually writing. If we can save some time from reading the code, not only from literally reading but also from understanding the spec and logic, which means we can develop efficiently.
+Generally speaking, **one parameter is better than two and no parameter is better than one.** The reality of parameters is that it costs time to read and understand its business logic, and time is always expensive with all projects. We spent around 70% of time reading the existing code, but only 30% is spent actually writing. If we can save some time from reading the code, not only from literally reading but also from understanding the spec and logic, we can develop our application more efficiently.
 
-Secondly, when **the code is short, the bugs are nowhere to hide.** Parameter causes bugs easily because it needs extra concern. Reducing parameters can make the method more clear, and show the intention explicitly. It can help us to maintain the code easily. When we try to reduce the parameter, we are actually trying to reduce the potential bugs at the same time.
+Secondly, **when code is short, bugs have nowhere to hide.** Parameters are bug-prone because it demands extra care and concern. Reducing parameters can not only make the method more clear, it also shows our intention explicitly. It can help us to maintain the code easily. When we reduce our parameters, we are actually reducing the number of potential bugs at the same time.
 
-Now we know it's better to reduce the parameter, but how could we do it? Let's check the parameter again.
+Now we know the benefits of reducing the parameters, the question is: how can we do it? Let's check the parameters again.
 
 ## Data clump
-When we find out the parameters are **a group of data that always come together**, and it would make no sense when missing one of them, we can call it a set of **Data Clump**. For example, a pair of start date and end date, or in this example, first name and last name.
+One observation that we can make is that parameters are **a group of data that always comes together**. This data would make no sense when one piece of data is missing. We call it a set of **Data Clump**. For example, a start date and end date pair we would call a data clump or, as in this example, a data clump would be the first name and last name.
 
-In the OOP world, the **object is the container of data, and class is the container of method** (behavior of object). It's cheap to create many small objects to manage and operate the serial data. Additionally, we can define the method on the object and reuse it when necessary.
+In the OOP world, **objects contain data** and **classes contain behavior** (i.e. methods operating on data). It's cheap to create many small objects[^1] to manage and operate on the serial data. Additionally, we can define methods on the object and reuse them when necessary.
+[^1]: Many small objects could end up causing GC pressure. But high performance languages often have tricks up their sleeve like doingg [escape analysis](https://shipilev.net/jvm/anatomy-quarks/18-scalar-replacement/) to convert heap allocation to stack allocations or [expanding argument objects as primitive arguments](https://shipilev.net/jvm/anatomy-quarks/18-scalar-replacement/). These languages also generally have separate GC pathways for small objects and short-lived objects. In most cases, if you're just using an argument object locally in a high performance language, your runtime will manage to optimize most of the cost away.
 
 Let's try to create a new object to contain first name and last name.
 
