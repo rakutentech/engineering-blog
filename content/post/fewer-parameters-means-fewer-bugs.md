@@ -2,7 +2,7 @@
 title: "Fewer parameters means fewer bugs"
 date: 2021-07-13T22:57:39+09:00
 hero: /images/hero-5.jpg
-excerpt: "Some tips for coding efficiently and reducing bugs"
+excerpt: "Tips for coding efficiently and reducing bugs"
 timeToRead: 10
 authors:
   - Bater
