@@ -7,8 +7,6 @@ timeToRead: 5
 authors:
   - Luca Mugnaini
 draft: true
-seo:
-  canonical: https://dev.to/lucamug/elm-6m8
 ---
 
 In our team at Rakuten, **we have been using Elm[^elm] in production for almost two years now**. This post is about our story, the lessons we learned, and our likes and dislikes.
@@ -60,7 +58,7 @@ Fast forward another couple of years, and here we are, with **several applicatio
 
 [^oslo-elm-days]: Even if it is almost two years old now, some more details about the use of Elm at Rakuten can be found in my talk [Elm at large (companies)](https://youtu.be/yH6o322S8XQ) given at the **Oslo Elm Day 2019** conference.
 
-These are some of our public projects made in Elm: A generic [authentication and registration system](https://login.account.rakuten.com/sso/register?client_id=rakuten_tw01&redirect_uri=https%3A%2F%2Fwww.rakuten.com.tw%2Fmember%2Fdelegate&response_type=code&scope=openid+profile+email&ui_locales=en-UK#/registration/1), a [UI library](https://package.elm-lang.org/packages/rakutentech/r10/latest/) to build [stuff like this](https://ellie-app.com/c5SL2qqLZP2a1), an [HTTP library](https://rakutentech.github.io/http-trinity/), the [Rakuten Open Source website](https://rakutentech.github.io/) ([source code](https://github.com/rakutentech/rakutentech.github.io)), a simple [404 error page](https://login.account.rakuten.com/), an [informative page about security](https://static.id.rakuten.co.jp/static/about_security/jpn/) (in Japanese).
+These are some of our public projects made in Elm: A highly-customizable authentication and registration system used across different Rakuten services (for example [Rakuten Taiwan](https://login.account.rakuten.com/sso/register?client_id=rakuten_tw01&redirect_uri=https%3A%2F%2Fwww.rakuten.com.tw%2Fmember%2Fdelegate&response_type=code&scope=openid+profile+email&ui_locales=en-UK#/registration/1) and [Rakuten Sport](https://login.account.rakuten.com/sso/register?client_id=rakuten_sports&redirect_uri=https%3A%2F%2Fsports.rakuten.com%2F&response_type=code&scope=openid%2Bemail%2Bprofile&ui_locales=en-UK#/sign_in)) with different user journey requirements, a [UI library](https://package.elm-lang.org/packages/rakutentech/r10/latest/) to build [stuff like this](https://ellie-app.com/c5SL2qqLZP2a1), an [HTTP library](https://rakutentech.github.io/http-trinity/), the [Rakuten Open Source website](https://rakutentech.github.io/) ([source code](https://github.com/rakutentech/rakutentech.github.io)), a simple — but infinitely cute! — [404 error page](https://login.account.rakuten.com/), an [informative page about security](https://static.id.rakuten.co.jp/static/about_security/jpn/) (in Japanese).
 
 ![Credit Card Demo](./images/credit-card-demo.png)
 _[Example of a credit card form](https://r10.netlify.app/form_example_credit_card/) made using the R10 library._
@@ -118,7 +116,7 @@ In no particular order.
 
 These are probably the most objective and important guarantees that Elm provides and that are difficult (impossible?) to find in other frameworks.
 
-- ⛔ No runtime exception.
+- ⛔ No runtime exceptions.
 - 🗿 100% immutable data.
 - 💧 100% pure functions, also in all dependencies.
 - ♻️ 100% type inference.
@@ -820,7 +818,7 @@ _If many people believe something, does it make it true? [^appeal-to=popularity]
 
 [^appeal-to=popularity]: Appeal to popularity, or [Argumentum ad populum](https://en.wikipedia.org/wiki/Argumentum_ad_populum), is a fallacious argument that concludes that something must be true because many or most people believe it. Illustration made with Elm and [Elm-Playground](https://package.elm-lang.org/packages/evancz/elm-playground/latest/), [here the source code](https://ellie-app.com/bY2R6xF5mWda1).
 
-There are common issues with all technologies that are not mainstream. When they are not mainstream, it is hard to promote them, especially if decision-makers use the fallacious “appeal to popularity” argument. Something that goes along the lines of "The technology X is better than Y because it has more stars in Github".[^what-is-success]
+There are common issues with all technologies that are not mainstream. When they are not mainstream, it is hard to promote them, especially if decision-makers use the fallacious “appeal to popularity” argument. Something that goes along the lines of "The technology X is better than Y because it has more stars in GitHub".[^what-is-success]
 
 [^what-is-success]: Evan Czaplicki in the talk [What is Success?](https://youtu.be/uGlzRt-FYto?t=261) discusses this topic.
 
