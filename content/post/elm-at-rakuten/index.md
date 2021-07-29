@@ -207,11 +207,11 @@ _Penrose Triangle.[^penrose-triangle]_
 
 [^penrose-triangle]: The [Penrose Triangle](https://en.wikipedia.org/wiki/Penrose_triangle) is a triangular impossible object. Illustration made with Elm and [Elm-Playground](https://package.elm-lang.org/packages/evancz/elm-playground/latest/), [here the source code](https://ellie-app.com/bZVgZf8GJvja1).
 
-The depth of the Elm type system allows us to model scenarios precisely, to **make impossible states impossible**.[^make-impossible-states-impossible] This is more a **coding pattern**[^coding patterns] rather than a language feature, and it requires a fully-fledged type system to work.
+The depth of the Elm type system allows us to model scenarios precisely, to **make impossible states impossible**.[^make-impossible-states-impossible] This is more a **coding pattern**[^coding-patterns] rather than a language feature, and it requires a fully-fledged type system to work.
 
 [^make-impossible-states-impossible]: The concept of **making impossible states impossible** is well explained by [Richard Feldman in his homonymous talk at Elm-conf 2016](https://youtu.be/IcgmSRJHu_8).
 
-[^coding patterns]: These [coding patterns in Elm](https://sporto.github.io/elm-patterns/index.html) are considered good practice. [Making impossible states impossible](https://sporto.github.io/elm-patterns/basic/impossible-states.html) is one of them.
+[^coding-patterns]: These [coding patterns in Elm](https://sporto.github.io/elm-patterns/index.html) are considered good practice. [Making impossible states impossible](https://sporto.github.io/elm-patterns/basic/impossible-states.html) is one of them.
 
 To clarify, let's make an example modeling the HTTP state with a **type alias**[^type-alias]:
 
@@ -816,7 +816,7 @@ These characteristics help to achieve good Lighthouse scores and good search eng
 ![Escape](./images/escape.jpg)
 _If many people believe something, does it make it true? [^appeal-to=popularity]_
 
-[^appeal-to=popularity]: Appeal to popularity, or [Argumentum ad populum](https://en.wikipedia.org/wiki/Argumentum_ad_populum), is a fallacious argument that concludes that something must be true because many or most people believe it. Illustration made with Elm and [Elm-Playground](https://package.elm-lang.org/packages/evancz/elm-playground/latest/), [here the source code](https://ellie-app.com/bY2R6xF5mWda1).
+[^appeal-to=popularity]: Appeal to popularity, or [Argumentum ad populum](https://en.wikipedia.org/wiki/Argumentum_ad_populum), is a fallacious argument that concludes that something must be true because many or most people believe it. Illustration made with Elm and [Elm-Playground](https://package.elm-lang.org/packages/evancz/elm-playground/latest/), [here the source code](https://ellie-app.com/bY2R6xF5mWda1). On a fun note, Elm was recently featured in a [New York Times crossword puzzle](https://twitter.com/stabbylambda/status/1419073832627802112). Does this make Elm a mainstream programming language now?
 
 There are common issues with all technologies that are not mainstream. When they are not mainstream, it is hard to promote them, especially if decision-makers use the fallacious “appeal to popularity” argument. Something that goes along the lines of "The technology X is better than Y because it has more stars in GitHub".[^what-is-success]
 
@@ -874,7 +874,7 @@ Purely functional programming could be mind-bending and intimidating for a devel
 
 > “Faced with the choice between changing one’s mind and proving that there is no need to do so, almost everyone gets busy on the proof.”
 >
-> **-~John Kenneth Galbraith**
+> **- John Kenneth Galbraith**
 
 Some consider this to be a benefit as it brings you out of your comfort zone and makes you think differently about programming.
 
@@ -910,7 +910,7 @@ For us the benefits are overwhelming, compared to the issues, and this is why we
 
 > “Then I came to Functional Programming … and programming was fun again!"
 >
-> **Rúnar Bjarnason[^fp-fun-again]**
+> **- Rúnar Bjarnason[^fp-fun-again]**
 
 A consequence of these technical benefits is the great feeling of relaxation, not being left alone, and not being afraid of breaking things.
 
