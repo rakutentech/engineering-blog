@@ -183,16 +183,13 @@ TypeScript, which adds optional static typing to JavaScript and is probably one 
 
 [^blind-spots]: The article [TypeScript's Blind Spots](https://incrementalelm.com/tips/typescript-blind-spots/) by Dillon Kearns illustrates several weak points of TypeScript.
 [^type-guards]:
-    [Type guards](https://www.typescriptlang.org/docs/handbook/advanced-types.html) are TypeScript expressions that perform a runtime check to discriminate between _custom types_. For example:
-    {{< highlight typescript >}}function isFish(pet: Fish | Bird): pet is Fish {
-    return (pet as Fish)
-    .swim !== undefined;
-    }{{< /highlight >}}
-    After that is possible to write code like:{{< highlight javascript >}}if (isFish(pet)) {
+    [Type guards](https://www.typescriptlang.org/docs/handbook/advanced-types.html) are TypeScript expressions that perform a runtime check to discriminate between _custom types_. For example:{{< highlight typescript >}}function isFish(pet: Fish | Bird): pet is Fish {
+    return (pet as Fish).swim !== undefined;
+}{{< /highlight >}}After that is possible to write code like:{{< highlight javascript >}}if (isFish(pet)) {
     pet.swim();
-    } else {
+} else {
     pet.fly();
-    }{{< /highlight >}}In Elm _type guards_ are not needed, it is possible to just directly use a [case .. of](https://guide.elm-lang.org/types/pattern_matching.html) construct{{< highlight elm >}}case pet of
+}{{< /highlight >}}In Elm _type guards_ are not needed, it is possible to just directly use a [case .. of](https://guide.elm-lang.org/types/pattern_matching.html) construct{{< highlight elm >}}case pet of
     Fish fish -> fish.swim
     Bird bird -> bird.fly{{< /highlight >}}The **case .. of** construct also guarantees that we are considering all possible custom types.
 
@@ -210,10 +207,9 @@ _Penrose Triangle.[^penrose-triangle]_
 The depth of the Elm type system allows us to model scenarios precisely, to **make impossible states impossible**.[^make-impossible-states-impossible] This is more a **coding pattern**[^coding-patterns] rather than a language feature, and it requires a fully-fledged type system to work.
 
 [^make-impossible-states-impossible]: The concept of **making impossible states impossible** is well explained by [Richard Feldman in his homonymous talk at Elm-conf 2016](https://youtu.be/IcgmSRJHu_8).
-
 [^coding-patterns]: These [coding patterns in Elm](https://sporto.github.io/elm-patterns/index.html) are considered good practice. [Making impossible states impossible](https://sporto.github.io/elm-patterns/basic/impossible-states.html) is one of them.
 
-To clarify, let's make an example modeling the HTTP state with a **type alias**[^type-alias]:
+To clarify, let's make an example modeling the HTTP state with a **type alias**:[^type-alias]
 
 [^type-alias]: A [`type alias`](https://guide.elm-lang.org/types/type_aliases.html) is a shorter name for a type.
 
@@ -303,7 +299,7 @@ Functional programming[^functional-programming] is on the rise again! Maybe we a
     proc1();
     proc2();
     proc3();
-    }{{< /highlight >}}
+}{{< /highlight >}}
 
 [^third-paradigm-shift]: [From Object Orient to Functional Programming](https://youtu.be/6YbK8o9rZfI?t=67), talk by Richard Feldman about paradigm shifts.
 
@@ -329,12 +325,12 @@ Currying is a characteristic that is found in many functional languages. In Elm,
 
 [^currying-in-javascript]:
     Out of curiosity, the closest equivalent in JavaScript of the Elm function {{< highlight elm >}}add a b = a + b{{< /highlight >}} that also supports currying, is {{< highlight javascript >}}add = a => b => a + b // a => b => a + b
-    add(1) // b => a + b
-    add(1)(2) // 3{{< /highlight >}} That is mostly syntactic sugar for {{< highlight javascript >}}function add(a) {
+add(1)                // b => a + b
+add(1)(2)             // 3{{< /highlight >}} That is mostly syntactic sugar for {{< highlight javascript >}}function add(a) {
     return function(b) {
-    return a + b;
+        return a + b;
     }
-    }{{< /highlight >}} To learn more about how _currying_ and how functions are defined in Elm, I recommend reading [Functions in Elm](https://gist.github.com/mauroc8/fdb9ac1e46639348549d1286215ee793).
+}{{< /highlight >}} To learn more about how _currying_ and how functions are defined in Elm, I recommend reading [Functions in Elm](https://gist.github.com/mauroc8/fdb9ac1e46639348549d1286215ee793).
 
 ```elm
 add a b = a + b -- <function> : number -> number -> number
@@ -739,14 +735,14 @@ a = 1
 
 [^order-doesnt-matter-ellie]:
     [The Elm code example is available here](https://ellie-app.com/bS3bK8gnW8na1). Another situation where the order matter is when mutability is in action, for example{{< highlight javascript >}}a = 1;
-    a = a + 2;
-    a = a \* 3; // Gives 9
+a = a + 2;
+a = a * 3; // Gives 9
 
 // while, inverting the order of
 // the 2nd and 3rd line:
 
 a = 1;
-a = a \* 3;
+a = a * 3;
 a = a + 2; // Gives 5{{< /highlight >}}These constructs don't compile in Elm because all data is immutable. By the way, have you ever noted that with mutability, the `=` sign loses its mathematical meaning? `a = a + 2` is an impossible construct in mathematics. With immutability, it is still holding because you can only write `newA = a + 2`. More about this in the [Hints for Bad Recursion](https://github.com/elm/compiler/blob/master/hints/bad-recursion.md) article.
 
 Even if the two lines seem in the wrong order, it works well in Elm, but the same code will throw the error “_b_ is not defined” in imperative languages.[^order-doesnt-matter-jsfiddle]
