@@ -447,7 +447,7 @@ For example:
 
 - There are also several programming languages influenced by Elm: [Roc](https://youtu.be/ZnYa99QoznE?t=4792) | [Gleam](https://youtu.be/ceynSTa1dV4) | [Dark](https://darklang.com/) | [Play](https://www.play-lang.dev/).
 
-- The quality of error messages provided by the Elm compiler propelled efforts by several languages to improve their error messaging system.
+- The quality of error messages provided by the Elm compiler propelled efforts by several other compilers, such as the [Rust](https://blog.rust-lang.org/2016/08/10/Shape-of-errors-to-come.html) and the [Scala](https://www.scala-lang.org/blog/2016/10/14/dotty-errors.html) compilers, to improve their error messaging system.
 
 [^redux-prior-art]: The [Prior Art](https://redux.js.org/understanding/history-and-design/prior-art) document of **Redux** explains the Elm influence in detail.
 [^swiftui-prior-art]: Joe Groff, one of the designers of the Swift language, mentions that [SwiftUI was inspired by Elm and React](https://twitter.com/jckarter/status/1135666944273571840).
