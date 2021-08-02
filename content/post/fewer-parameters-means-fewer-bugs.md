@@ -40,7 +40,7 @@ This simple method works fine but is not good enough. Let's refactor it.
 ## The good code should be small and simple
 What is good code? This question might be hard to answer, but I would say **good code should be small and simple.** In this article, let's focus on making the parameters smaller.
 
-Generally speaking, **one parameter is better than two and no parameter is better than one.** The reality of parameters is that it costs time to read and understand its business logic, and time is always expensive with all projects. We spent around 70% of time reading the existing code, but only 30% is spent actually writing. If we can save some time from reading the code, not only from literally reading but also from understanding the spec and logic, we can develop our application more efficiently.
+Generally speaking, _**one** parameter is better than **two**_ and _**no** parameter is better than **one**._ The problem with parameters is that it takes time to read and understand them, and time is always expensive. We spent around 70% of time reading the existing code, but only 30% is spent actually writing. If we can save some time from reading the code, not only from literally reading but also from understanding the spec and logic, we can write code more efficiently.
 
 Secondly, **when code is short, bugs have nowhere to hide.** Parameters are bug-prone because it demands extra care and concern. Reducing parameters can not only make the method more clear, it also shows our intention explicitly. It can help us to maintain the code easily. When we reduce our parameters, we are actually reducing the number of potential bugs at the same time.
 
