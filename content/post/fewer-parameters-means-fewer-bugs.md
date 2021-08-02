@@ -8,13 +8,13 @@ authors:
   - Bater
 draft: true
 ---
-When I review code, I sometimes notice that there is room to squash parameters of methods, yet, not many developers are aware of this when they design code. From my coding experience, we can write code efficiently and reduce bug rates by putting in effort in reducing the parameters from our methods. Unless your manager still evaluates output by lines of code, you should definitely try these tips in your daily coding life.
+When I review code, I sometimes notice that there is an opportunity to squash method parameters - yet many developers are unaware of this when they write code. From my coding experience, we can write code more efficiently and reduce the amount of bugs by making an effort to reduce the number of parameters in our methods. Unless your manager still evaluates output by lines of code, you should definitely try these tips in your daily coding life.
 
-So today, I will share how to do it with OOP (object-oriented programming) design, and explain where this magic power comes from.
+So today, I will share how to do it with "OOP" (object-oriented programming) design, and explain where this magic power comes from.
 
-Let's start with a small example. The following demo code was written in Ruby, but don't worry; Ruby code is so beginner-friendly that once you have some OOP background, it's easy to grasp.
+Let's start with a small example. The following demo code was written in Ruby, but don't worry; Ruby code is so beginner-friendly that once you have some "OOP" background, it's easy to grasp.
 
-The example story is, we have some books and want to pass the author name as a parameter, and get the book title, author name, and publish date as a summary.
+The example story is, we have some books and want to pass the author name as a parameter, and get the book title, author name, and year published as a summary.
 ```ruby
 class Book
   attr_reader :title, :year_published
@@ -33,7 +33,7 @@ book = Book.new("Ruby is the best", "2020")
 book.summary("Bater", "Chen")
 => "Ruby is the best - Chen, Bater (2020)"
 ```
-We have a book class. It has two attributes: title, and year_published. The `initialize` method is called when we `new` a book object. Book class only has one instance method called `summary`. It needs two parameters: first_name and last_name. In Ruby, when we define the `attr_reader` as the attribute of the object, it will create the read method automatically. So we can call the instance variable directly by `title` to get `@title` return, same as year_published.
+We have a book class. It has two attributes: `title`, and `year_published`. The `initialize` method is called when we `new` a book object. Book class only has one instance method called `summary`. It needs two parameters: first_name and last_name. In Ruby, when we define the `attr_reader` as the attribute of the object, it will create the read method automatically. So we can call the instance variable directly by `title` to get `@title` return, same as `year_published`.
 
 This simple method works fine but is not good enough. Let's refactor it.
 
@@ -49,7 +49,7 @@ Now we know the benefits of reducing the parameters, the question is: how can we
 ## Data clump
 One observation that we can make is that parameters are **a group of data that always comes together**. This data would make no sense when one piece of data is missing. We call it a set of **Data Clump**. For example, a start date and end date pair we would call a data clump or, as in this example, a data clump would be the first name and last name.
 
-In the OOP world, **objects contain data** and **classes contain behavior** (i.e. methods operating on data). It's cheap to create many small objects[^1] to manage and operate on the serial data. Additionally, we can define methods on the object and reuse them when necessary.
+In the "OOP" world, **objects contain data** and **classes contain behavior** (i.e. methods operating on data). It's cheap to create many small objects[^1] to manage and operate on the serial data. Additionally, we can define methods on the object and reuse them when necessary.
 [^1]: Many small objects could end up causing GC pressure. But high performance languages often have tricks up their sleeve like doingg [escape analysis](https://shipilev.net/jvm/anatomy-quarks/18-scalar-replacement/) to convert heap allocation to stack allocations or [expanding argument objects as primitive arguments](https://shipilev.net/jvm/anatomy-quarks/18-scalar-replacement/). These languages also generally have separate GC pathways for small objects and short-lived objects. In most cases, if you're just using an argument object locally in a high performance language, your runtime will manage to optimize most of the cost away.
 
 Let's try to create a new object to contain first name and last name.
@@ -93,7 +93,7 @@ book.summary(Author.new("Bater", "Chen"))
 The output of `summary` is the same, but the parameter reduces from two strings to one object. Well, you may doubt that it doesn't really matter, but imagine that you can follow the same pattern to reduce the parameter from 10 data into 1 object. That would be a huge impact.
 
 ## Law of Demeter
-You may also notice that I relocate the logic of full name from book class to author class because a full name can perform independently without interaction with a book object. An **Object should know less about each other**, it is known as the [Law of Demeter][2] or "Least Knowledge Principle".
+You may also have noticed that I relocated the logic of full name from book class to author class because a full name can perform independently without interaction with the book object. An **object should know less about each other** is said by the [Law of Demeter][2] or the "Least Knowledge Principle".
 
 In this case, the book class shouldn't know the logic of `full_name`. The business logic of `full_name` should only be defined in the author class, not spread to somewhere else. From now on, the book class has no dependence on first name and last name directly. In fact, any object can be the parameter of the summary method once it has the `full_name` method. For example, if we have a user object that also can return `full_name`, it also works fine with the `summary` method.
 
@@ -120,7 +120,7 @@ def cover(author)
   "#{title}\n\n\n#{author.full_name}"
 end
 ```
-The cover method generates a string that has the book title and author's full name inside. After the refactoring, we can reuse the author's full name method again. Once we build a good pattern, the new code can follow it easily and keep the project clean. But if you didn't pay attention, the code would get rust rapidly and becomes the developer's nightmare. 
+The cover method generates a string that has the book title and author's full name inside. After the refactoring, we can reuse the author's full name method again. Once we build up a good pattern, the new code can follow it easier and keep our project clean. But if you didn't pay attention, the code would quickly become harder to read, develop technical debt and become a developer's worst nightmare.
 
 You may also notice that both `summary` and `cover` need the same parameter, author, it's the smell of refactoring. The author information should be one of the attributes of the book object, instead of passing as a parameter when we call the book method. So we can refactor the book class again.
 
