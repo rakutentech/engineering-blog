@@ -159,7 +159,7 @@ Both `summary` and `cover` methods' output remain the same but now we can call i
 This example doesn't encourage you to move all the parameters into the object attributes, it depends on the domain know-how. We can do it because it makes sense for a book object to having an author as an attribute in this case. It may get worse if we try to put the wrong data as the object attribute.
 
 ## Open-closed principle
-When we reducing our parameters from two to zero, our design is now open for extension but closed for modification. This is inline with the [open-closed principle][3].
+When we reducing our parameters from two to zero, our design is now open for extension but closed for modification. This is in line with the [open-closed principle][3].
 
 Let's say we have a new requirement again, this time, some authors now have a middle name. In this new version, it would be very easy to adapt our code because we don't need to touch the book class anymore. The new author class would refactored like this:
 
