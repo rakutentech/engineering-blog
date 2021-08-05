@@ -14,7 +14,7 @@ So today, I want to show how to do it with OOP (object-oriented programming) des
 
 Let's start with a small example. The following demo code was written in Ruby, but don't worry: Ruby code is so beginner-friendly that once you have some OOP background, it's easy to grasp.
 
-The example story is, we have some books and want to pass the author name as a parameter, and get the book title, author name, and year published as a summary.
+In this example, we have some books and want to pass the author name as a parameter, and get the book title, author name, and year published as a summary.
 ```ruby
 class Book
   attr_reader :title, :year_published
