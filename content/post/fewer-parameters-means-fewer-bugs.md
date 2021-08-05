@@ -12,7 +12,7 @@ When I review code, I sometimes notice that there is an opportunity to squash me
 
 So today, I want to show how to do it with OOP (object-oriented programming) design, and explain where this magic power comes from.
 
-Let's start with a small example. The following demo code was written in Ruby, but don't worry; Ruby code is so beginner-friendly that once you have some "OOP" background, it's easy to grasp.
+Let's start with a small example. The following demo code was written in Ruby, but don't worry: Ruby code is so beginner-friendly that once you have some OOP background, it's easy to grasp.
 
 The example story is, we have some books and want to pass the author name as a parameter, and get the book title, author name, and year published as a summary.
 ```ruby
