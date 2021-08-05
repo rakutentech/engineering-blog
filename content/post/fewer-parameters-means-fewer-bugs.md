@@ -225,7 +225,7 @@ end
 ```
 The disadvantage of coupling is that when one class needs to change, you need to change others as well. For example, one day we need to rename the full name method or add more parameters to it, we need to modify the book class at the same time, which we don't like.
 
-The bad news is, in the real world it's almost impossible to remove all the coupling between each object, but we can at least reduce the impact by segregating and highlighting the dependence. 
+The bad news is that in the real world it's almost impossible to remove all the coupling between objects. But we can at least reduce the impact by segregating and highlighting the dependence. 
 
 ```rb
 def summary
