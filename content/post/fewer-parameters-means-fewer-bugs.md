@@ -236,7 +236,7 @@ def author_name
   author.full_name
 end
 ```
-After this refactoring, the `summary` method 100% calling from the book object itself. The book class still has the coupling with the author class, but it's obvious and easy to maintain. If we only consider the example case, you might wonder is that a little bit over design? Well, I would say that a good pattern is never too early. Now we can push the PR confidently and enjoy the holiday.
+After this refactoring, 100% of the calls from the `summary` method are to the book object itself. The `Book` class still has the coupling with the `Author` class, but the point of coupling is obvious and easy to maintain. If we only consider the example case, you might wonder: "Isn't that a little bit over-designed?" Well, I would say that a good pattern is never too early. Now we can push the PR confidently and enjoy the holiday.
 
 ## Conclusion
 Good code should be small and simple. Of course, the parameter is not the only place we can place our effort in to reducing its size. During refactoring, don't forget to confirm the result by unit testing to make sure the final behavior is consistent. People around you may think that it would be time-wasting work because the final behavior remains the same even though developers spent a lot of time on it. But there's the value of code quality. I believe this line of thinking would help you perform well in development speed and product stability in the long term.
