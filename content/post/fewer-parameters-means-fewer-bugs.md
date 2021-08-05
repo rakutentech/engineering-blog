@@ -210,7 +210,7 @@ end
 Obviously, the code quality has a huge improvement after refactoring.
 
 ## Loose coupling
-Before we finish refactoring and send off this PR to someone, let's check the code again. But is it clean enough?
+Before we finish refactoring and send off this PR to someone, let's check the code again. Is it clean enough?
 
 The code seems short and simple, but this method still depends on the author class. In other words, the `summary` method needs to know the author object has a `full_name` method, we could say the book class still couple with author class. In this case, maybe it's hard to notice the cost of coupling, let's imagine a few years later, the `summary` method might become more complicated:
 
