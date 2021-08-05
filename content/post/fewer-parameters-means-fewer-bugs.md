@@ -50,7 +50,7 @@ Secondly, **when code is short, bugs have nowhere to hide.** Parameters are bug-
 
 Now we know the benefits of reducing the parameters, the question is: how can we do it? Let's check the parameters again.
 
-## Data clump
+## Data Clump
 One observation that we can make is that parameters are **a group of data that always comes together**. This data would make no sense when one piece of data is missing. We call it a set of **Data Clump**. For example, a start date and end date pair we would call a data clump or, as in this example, a data clump would be the first name and last name.
 
 In the "OOP" world, **objects contain data** and **classes contain behavior** (i.e. methods operating on data). It's cheap to create many small objects[^1] to manage and operate on the serial data. Additionally, we can define methods on the object and reuse them when necessary.
