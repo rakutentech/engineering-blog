@@ -8,7 +8,7 @@ authors:
   - Bater
 draft: true
 ---
-When I review code, I sometimes notice that there is an opportunity to squash method parameters - yet many developers are unaware of this when they write code. From my coding experience, we can write code more efficiently and reduce the amount of bugs by making an effort to reduce the number of parameters in our methods. Unless your manager still evaluates output by lines of code, you should definitely try these tips in your daily coding life.
+When I review code, I sometimes notice that there is an opportunity to squash method parameters --- yet many developers are unaware of this when they write code. From my coding experience, we can write code more efficiently and reduce the amount of bugs by making an effort to reduce the number of parameters in our methods. Unless your manager still evaluates output by lines of code, you should definitely try these tips in your daily coding life.
 
 So today, I will share how to do it with "OOP" (object-oriented programming) design, and explain where this magic power comes from.
 
