@@ -3,7 +3,7 @@ title: "Zero-Downtime Rolling Deployments in Kubernetes"
 date: 2021-07-15
 hero: /images/rolling-waves.jpg
 excerpt: |
-  Kubernetes enables us to operate robust systems at scale. However, it is not perfect and in edge cases k8s may behave in unexpected ways.
+  Kubernetes enables us to operate robust systems at scale. However, it is not perfect and in edge cases Kubernetes may behave in unexpected ways.
 authors:
   - Manish Yadav
   - Oscar Garcia
@@ -17,11 +17,11 @@ license: cc-by
 
 At Rakuten we generally use to Kubernetes to run our services. Kubernetes enables us to operate robust systems at scale. However, Kubernetes is not perfect and in edge cases it may behave in unexpected ways. For example, during rolling deployments we expect no request failures --- a reasonable expectation, right? But when we ran functional tests during a deployment we noticed some requests failing --- to our surprise. After researching this for a while we learned that...
 
-> K8s will send traffic to terminating pods.
+> Kubernetes will send traffic to terminating pods.
 
-Even after starting the pod shutdown process, which includes sending a `TERM` signal to pod, k8s still sends new requests to the pod. Because there is no orchestration between k8s sending `TERM` signal and removing the pod from its service endpoint list. Those 2 operations can happen in any order, possibly with delay in between them. Yikes 😬.
+Even after starting the pod shutdown process, which includes sending a `TERM` signal to pod, Kubernetes still sends new requests to the pod. Because there is no orchestration between Kubernetes sending `TERM` signal and removing the pod from its service endpoint list. Those 2 operations can happen in any order, possibly with delay in between them. Yikes 😬.
 
-In this article, we explore the Kubernetes pod eviction mechanism and show different approaches to avoid these surprising errors in apps deployed with k8s.
+In this article, we explore the Kubernetes pod eviction mechanism and show different approaches to avoid these surprising errors in apps deployed with Kubernetes.
 
 ## Kubernetes Pod Termination Process
 
@@ -58,7 +58,7 @@ Fortunately, web application frameworks often support Graceful shutdown with lit
 
 Next, you should doublecheck that your application is actually receiving the `TERM` signal - it might not! For example, the busybox `sh` that comes with Linux Alpine does not pass signals to children. We need a more capable shell (e.g. `bash`) or an init system can handle and forward signals.
 
-Moreover, we don't control how off-the-shelf software reacts to a `TERM` signal. For example, HAproxy performs a hard stop when receives the `TERM` signal and terminates gracefully when receives the `USR1` signal. So we need to re-map the signal we receive from k8s (`TERM`) to the signal that HAproxy "understands" (`USR1`). In the following example, we use `dumb-init` to handle signals, convert the `TERM` (`15`) to `USR1` (`10`) by using the `—-rewrite` option and send the signal to HAproxy.
+Moreover, we don't control how off-the-shelf software reacts to a `TERM` signal. For example, HAproxy performs a hard stop when receives the `TERM` signal and terminates gracefully when receives the `USR1` signal. So we need to re-map the signal we receive from Kubernetes (`TERM`) to the signal that HAproxy "understands" (`USR1`). In the following example, we use `dumb-init` to handle signals, convert the `TERM` (`15`) to `USR1` (`10`) by using the `—-rewrite` option and send the signal to HAproxy.
 
 ```Dockerfile
 ROM alpine:3.5
@@ -111,7 +111,7 @@ Sleeping in the pre-stop is a trick to avoid a problem that will (hopefully) be 
 
 Moreover, this approach requires guesswork. If we sleep too long deployments become unnecessarily slow, if we don't sleep long enough we don't resolve the problem.
 
-On the other hand, this requires only changes in our k8s deployment yaml files, the application code stays untouched. So if this stops working in a future k8s release we can update our k8s config files without building new container images - so it all stays on the k8s config layer.
+On the other hand, this requires only changes in our Kubernetes deployment yaml files, the application code stays untouched. So if this stops working in a future Kubernetes release we can update our Kubernetes config files without building new container images - so it all stays on the Kubernetes config layer.
 
 Another positive aspect is that the configuration is spatially close, right next to each other in the config file. In other words it has high spatial cohesion, which improves readability & maintainability.
 
@@ -188,7 +188,7 @@ This approach is in the application binary (the container image), so it can work
 
 However it has drawbacks, firstly it forces us to forego graceful shutdown behavior that is built into application frameworks like [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-graceful-shutdown).
 
-Secondly it suffers from low spatial cohesion - the delay timing is now encoded in the application source code, while the upper bound (`spec.terminationGracePeriodSeconds`) is in the k8s object description. This makes the approach less readably (or understandable) because you have to look at 2 different files, possibly in 2 different code repositories, to understand the full picture. It also makes it harder to maintain, because you have to orchestrate application changes (delay timing) with configuration changes (`spec.terminationGracePeriodSeconds`).
+Secondly it suffers from low spatial cohesion - the delay timing is now encoded in the application source code, while the upper bound (`spec.terminationGracePeriodSeconds`) is in the Kubernetes object description. This makes the approach less readably (or understandable) because you have to look at 2 different files, possibly in 2 different code repositories, to understand the full picture. It also makes it harder to maintain, because you have to orchestrate application changes (delay timing) with configuration changes (`spec.terminationGracePeriodSeconds`).
 
 ## Idea #3: _Dynamically_ delay app shutdown
 
@@ -200,7 +200,7 @@ In internal discussions we outlined a 3rd approach that seems more robust than t
 1. Reset the stopwatch to zero every time the pod receives a request (it means we’re still getting traffic and we should be getting health check traffic as).
 1. When the stopwatch reaches `N` seconds, in other words `N` seconds without traffic, **AND** all connections are drained, we can kill the pod.
 
-This may or may not work, depending on when k8s decides to stop sending health checks. We did not try this approach because it is a lot more complicated than a sleep and we can slower deployments. But _in theory_ it is more reliable than idea #1 and #2.
+This may or may not work, depending on when Kubernetes decides to stop sending health checks. We did not try this approach because it is a lot more complicated than a sleep and we can slower deployments. But _in theory_ it is more reliable than idea #1 and #2.
 
 ## Conclusion
 
