@@ -33,7 +33,7 @@ book = Book.new("Ruby is the best", "2020")
 book.summary("Bater", "Chen")
 => "Ruby is the best - Chen, Bater (2020)"
 ```
-We have a book class. It has two attributes: `title`, and `year_published`. The `initialize` method is called when we `new` a book object. Book class only has one instance method called `summary`. It needs two parameters: first_name and last_name. In Ruby, when we define the `attr_reader` as the attribute of the object, it will create the read method automatically. So we can call the instance variable directly by `title` to get `@title` return, same as `year_published`.
+We have a book class. It has two attributes: `title`, and `year_published`. The `initialize` method is called when we `new` a book object. Book class only has one instance method called `summary`. It needs two parameters: `first_name` and `last_name`. In Ruby, when we define the `attr_reader` as the attribute of the object, it will create the read method automatically. So we can call the instance variable directly by `title` to get `@title` return, same as `year_published`.
 
 This simple method works fine but is not good enough. Let's refactor it.
 
