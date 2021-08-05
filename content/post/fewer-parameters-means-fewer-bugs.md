@@ -154,7 +154,7 @@ book.summary
 book.cover
 => "Ruby is the best\n\n\nChen, Bater"
 ```
-Both `summary` and `cover` methods' output remain the same but now we can call it freely without any parameter once the book object is prepared. In Ruby, we can skip parentheses when there is no parameter.
+Both `summary` and `cover` methods' output remain the same but now we can call it freely without any parameter once the book object is prepared. (In Ruby, we can skip parentheses when there is no parameter.)
 
 This example doesn't encourage you to move all the parameters into the object attributes, it depends on the domain know-how. We can do it because it makes sense for a book object to having an author as an attribute in this case. It may get worse if we try to put the wrong data as the object attribute.
 
