@@ -1,12 +1,11 @@
 ---
 title: "Introducing AltSwiftUI in Rakuten Travel"
-date: 2021-07-06T18:18:13+09:00
+date: 2021-07-06
 excerpt: "What is AltSwiftUI and how we introduced it in Rakuten Travel"
-timeToRead: 4
 authors:
    - Kevin Wong
 hero: /post/altswiftui-travel/hero.png
-draft: true
+draft: false
 license: cc-by
 ---
 

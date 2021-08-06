@@ -1,6 +1,6 @@
 ---
 title: "Zero-Downtime Rolling Deployments in Kubernetes"
-date: 2021-07-15
+date: 2021-07-18
 hero: /images/rolling-waves.jpg
 excerpt: |
   Kubernetes enables us to operate robust systems at scale. However, it is not perfect and in edge cases Kubernetes may behave in unexpected ways.

@@ -1,12 +1,12 @@
 ---
 title: "Elm at Rakuten"
-date: 2021-07-13T00:00:00+09:00
+date: 2021-08-01
 hero: /post/elm-at-rakuten/images/elm-at-rakuten.png
 excerpt: "Our story of adopting the Elm language in Rakuten. The lessons we learned, and our likes and dislikes."
-timeToRead: 5
 authors:
   - Luca Mugnaini
-draft: true
+draft: false
+license: cc-by
 ---
 
 In our team at Rakuten, **we have been using Elm[^elm] in production for almost two years now**. This post is about our story, the lessons we learned, and our likes and dislikes.
