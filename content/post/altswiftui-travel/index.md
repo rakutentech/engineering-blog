@@ -14,7 +14,7 @@ _Background image by [Dan Roizer](https://unsplash.com/@danroizer) under the [Un
 
 SwiftUI is a framework introduced by Apple in 2019 for development in a multitude of Apple platforms, including iOS. It allows developers to create apps with declarative UI programming and state management. Because of this, it's possible to improve development speed and quality. Yet, the framework requires iOS 13 and onwards versions. On top of that, new additions to the framework will require an even higher minimum iOS version.
 
-When creating iOS apps, an important choice to make is which minimum iOS version this app will support. If you want to target an audience as big as possible, or if you are updating an older app which has users on older iOS versions, your development will be restricted to frameworks supporting these iOS versions.
+When creating iOS apps, an important choice to make is which minimum iOS version this app will support. In some cases, targetting an audience as big as possible in terms of iOS versions will be part of the app's business strategy. Or you may need to support users with older iOS versions from a previous app. When faced with this, your development will be restricted to frameworks supporting these iOS versions.
 
 AltSwiftUI is an open source UI framework for iOS that mimics SwiftUI’s interface. It introduces a single OS baseline at iOS 11 and greater source flexibility.
 
@@ -24,19 +24,17 @@ For more info see: https://github.com/rakutentech/AltSwiftUI
 
 ## A peak into code
 
-Other than some small differences, the code structure is highly similar to that of regular SwiftUI code. The code below displays a scrollable view with an icon header and a list of ramens to order.
+The code structure is very much like regular SwiftUI code. But there are some small differences which allow it to support previous iOS versions. For example, AltSwiftUI doesn’t use associated types in views nor opaque return types (`some View`).
 
 ![AltSwiftUI code sample](altswiftui-code-sample.png)
 
-We can create AltSwiftUI views by having structs conform to the `View` protocol. Property wrappers such as @StateOject, @State, @Binding, etc. allow the view to automatically refresh when the value of these properties change. The content of the `body` computed property (as required by the `View` protocol) will define the actual UI code. Finally, the UI code is defined in a declarative way by using Swift's function builders. If you are not familiar with SwiftUI code, you should head to ![Apple's SwiftUI tutorial](https://developer.apple.com/tutorials/swiftui) for a fast start.
-
-One of the main differences between SwiftUI and AltSwiftUI is that AltSwiftUI doesn't use associated types in views. This means that it is not necessary to use opaque return types (`some View`). 
+We can create AltSwiftUI views by having structs conform to the `View` protocol. Property wrappers (@StateOject, @State, etc.) allow the view to automatically refresh when the value of these properties change. The content of the `body` computed property (as required by the `View` protocol) will define the actual UI code. Finally, the UI code is defined in a declarative way by using Swift's function builders. If you are not familiar with SwiftUI code, you should head to [Apple's SwiftUI tutorial](https://developer.apple.com/tutorials/swiftui) for a fast start.
 
 ## Extended features
 
-AltSwiftUI interface is inspired by SwiftUI, but we needed more features and capabilities than originally offered, so we introduced extra functionalities in AltSwiftUI.
+AltSwiftUI's interface mimics a great part of SwiftUI's interface. But we added extra features as the initial offering didn't meet our needs.
 
-For example, we needed deeper integrations with List and ScrollView interactions, so there are methods like `ScrollView.scrollOffset` and `List.onDragStarted`. There are also multiple small additions to some of the views and modifiers, and this list will keep growing in the future. To identify these features, you can read the source documentation during development or at the ![AltSwiftUI homepage](https://altswiftui.com).
+For example, we needed deeper integrations with List and ScrollView interactions, so there are methods like `ScrollView.scrollOffset` and `List.onDragStarted`. There are also multiple small additions to some of the views and modifiers, and this list will keep growing in the future. To identify these features, you can read the source documentation during development or at the [AltSwiftUI homepage](https://altswiftui.com).
 
 ## AltSwiftUI in Rakuten Travel
 
@@ -58,7 +56,7 @@ The view layer consists of components that interact with the user. This includes
 
 The model layer consists of operations that retrieve, process and store data that are part of our business domain. At the same time, it exposes this data to the view layer as transparently as possible for a simple and smooth integration.
 
-The framework’s ability to integrate view state with data, including automatic updates, is what allows us to remove intermediate layers of complexity that often cause bugs. Instead, the framework handles these intermediate layers without any extra code.
+The framework’s ability to integrate view state with data and automatic updates allows us to remove intermediate layers. These layers often introduce complexity that are the cause of bugs. Instead, the framework handles these intermediate layers without any extra code.
 
 ---
 
