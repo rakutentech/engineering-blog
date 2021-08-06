@@ -24,7 +24,7 @@ For more info see the [AltSwiftUI GitHub repository](https://github.com/rakutent
 
 ## A peek into code
 
-The code structure is very much like regular SwiftUI code. But there are some small differences that allow it to support previous iOS versions. For example, AltSwiftUI doesn’t use associated types in views nor opaque return types (`some View`).
+The code structure is very much like regular SwiftUI code. But some differences allow it to support previous iOS versions. For example, AltSwiftUI doesn’t use associated types in views nor opaque return types (`some View`).
 
 ![AltSwiftUI code sample](altswiftui-code-sample.png)
 
@@ -40,13 +40,13 @@ For example, we needed deeper integrations with List and ScrollView interactions
 
 AltSwiftUI’s development started at the end of 2019. Our main purpose was to take on new projects while renewing the way we design software. It also allowed us to improve the speed and quality of our development, and be more future proof.
 
-We compared what SwiftUI offered with what our app needed while improving AltSwiftUI. The open source nature of this framework allowed us to meet our app expectations by adding new features.
+We compared what SwiftUI offered with what our app needed while improving AltSwiftUI. The open-source nature of this framework allowed us to meet our app expectations by adding new features.
 
 By using only AltSwiftUI to code our UI, we recently developed and published a new app titled [_Rakuten Travel Premium Club_](https://apps.apple.com/jp/app/rakuten-travel-premium-club/id1538721536). This app is an invitation-only app that provides luxurious travel destinations for booking to our customers.
 
 ### Simplified Architecture
 
-The ability to simplify our app’s architecture is the a main pillar for improving our design and development. When using patterns such as MVVM or VIPER, the number of things a developer needs to worry about tends to increase. In contrast, we could transition to an MV (model view) design with AltSwiftUI at its core. 
+The ability to simplify our app’s architecture is the main pillar for improving our design and development. When using patterns such as MVVM or VIPER, the number of things a developer needs to worry about tends to increase. In contrast, we could transition to an MV (model view) design with AltSwiftUI at its core. 
 
 The core principle of this MV design is that developers should focus more on _what_ they want to build, rather than _how_. We can delimit what is part of the UI (view layer) and what is part of our business logic/data (model layer). Because of this, we can better visualize our tasks and improve development efficiency.
 
