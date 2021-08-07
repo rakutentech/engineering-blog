@@ -236,7 +236,7 @@ def author_name
   author.full_name
 end
 ```
-After this refactoring, 100% of the calls from the `summary` method are to the book object itself. The `Book` class still has the coupling with the `Author` class, but the point of coupling is obvious and easy to maintain. If we only consider the example case, you might wonder: "Isn't that a little bit over-designed?" Well, I would say that a good pattern is never too early. Now we can push the PR confidently and enjoy the holiday.
+After this refactoring, the `summary` method only calls from other methods from the book object itself. The `Book` class still has the coupling with the `Author` class, but the point of coupling is obvious and easy to maintain. If we only consider the example case, you might wonder: "Isn't that a little bit over-designed?" Well, all design is trade-offs. We gain the benefit of obvious, explicit point of coupling, but we have to accept the drawback of another layer of indirection. In our small example that may be a bad trade-off. But in large, production-grade codebases the benefits outweigh the drawbacks dramatically. So, I would say that it's better to apply a pattern early on. Now we can push the PR confidently and enjoy the holiday.
 
 ## Conclusion
 Good code should be small and simple. Of course, parameters are not the only place we can put our effort into when we're looking to reduce code size.
