@@ -46,7 +46,7 @@ Generally speaking, _**one** parameter is better than **two**_ and _**no** param
 
 If we can save some time from reading the code, not only from literally reading but also from understanding the spec and logic, we can write code more efficiently.
 
-Secondly, **when code is short, bugs have nowhere to hide.** Parameters are bug-prone because it demands extra care and concern. Reducing parameters can not only make the method more clear, it also shows our intention explicitly. It can help us to maintain the code easily. When we reduce our parameters, we are actually reducing the number of potential bugs at the same time.
+Secondly, **when code is short, bugs have nowhere to hide**. Parameters are bug-prone because they demand extra care and concern. Reducing parameters can not only make the method clearer, but also show our intention more explicitly. It can make maintaining the code easier. When we reduce the number of parameters, we are reducing the number of potential bugs at the same time.
 
 Now we know the benefits of reducing the parameters, the question is: how can we do it? Let's check the parameters again.
 
