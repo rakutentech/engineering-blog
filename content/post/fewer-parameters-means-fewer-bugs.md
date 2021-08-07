@@ -38,7 +38,7 @@ We have a book class. It has two attributes: `title`, and `year_published`. The 
 This simple method works fine but is not good enough. Let's refactor it.
 
 ## Good code should be small and simple
-What is good code? This question might be hard to answer, but I would say **good code should be small and simple.** In this article, let's focus on reducing the number of parameters.
+What is good code? This question might be hard to answer, but I would say **good code should be small and simple**. In this article, I'll focus on making the code **smaller**, by reducing the amount of parameters.
 
 Generally speaking, _**one** parameter is better than **two**_ and _**no** parameter is better than **one**._ The problem with parameters is that it takes time to read and understand them, and time is always expensive.
 
