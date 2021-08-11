@@ -33,7 +33,7 @@ We can create AltSwiftUI views by having structs conform to the `View` protocol.
 
 AltSwiftUI's interface mimics a great part of SwiftUI's interface. But we added extra features as the initial offering didn't meet our needs.
 
-For example, we needed deeper integrations with List and ScrollView interactions, so there are methods like `ScrollView.scrollOffset` and `List.onDragStarted`. There are also multiple small additions to some of the views and modifiers, and this list will keep growing in the future. To identify these features, you can read the source documentation during development or at the [AltSwiftUI homepage](https://altswiftui.com).
+For example, we needed deeper integrations with List and ScrollView interactions, so there are methods like `ScrollView.scrollOffset` and `List.onDragStarted`. There are also multiple small additions to some of the views and modifiers, and this list will keep growing in the future. To identify these features, you can read the source documentation during development or at the [AltSwiftUI homepage](https://rakutentech.github.io/AltSwiftUI/).
 
 ## AltSwiftUI in Rakuten Travel
 
