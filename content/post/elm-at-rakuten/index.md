@@ -929,6 +929,7 @@ It is always good to hear a different opinion on every argument. Here you can fi
 - [Elm at Ford](https://www.youtube.com/watch?v=5WVXCy1Q88o)
 - [Elm at Culture Amp](https://www.youtube.com/watch?v=LZj_1qVURL0)
 - [Elm at Thoughtbot](https://thoughtbot.com/blog/tags/elm)
+- [Elm at Diesdas Digital](https://medium.com/diesdas-direct/making-browser-games-more-secure-with-elm-93fcda929543)
 - [Elm at other companies](https://github.com/jah2488/elm-companies#readme)
 
 [Index](#index) | [Top](#top)
