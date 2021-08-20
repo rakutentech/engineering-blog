@@ -96,3 +96,15 @@ We use [pandoc](https://pandoc.org/), for example [via docker](https://github.co
 ```shell
 docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex path/to/source.md -o output.pdf --pdf-engine=xelatex 
 ```
+
+### Hugo doesn't find layout files
+
+Sometimes hugo gets confused and doesn't find the theme's layout files and you'll get warnings like this:
+
+```shell
+WARN 2021/07/26 10:28:43 found no layout file for "HTML" for kind "home": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+WARN 2021/07/26 10:28:43 found no layout file for "HTML" for kind "page": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+WARN 2021/07/26 10:28:43 found no layout file for "HTML" for kind "taxonomy": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+```
+
+A `hugo mod clean` usually fixes the issue.
