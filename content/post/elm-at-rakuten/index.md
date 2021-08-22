@@ -181,7 +181,7 @@ If you need to create a quick proof of concept, dynamic typing may be faster and
 
 TypeScript, which adds optional static typing to JavaScript and is probably one of the best things to happen to JavaScript, can partially mitigate the issues with the JavaScript dynamic type system. But being a superset of JavaScript it needs to compromise on elegance and simplicity. It also has several "blind spots".[^blind-spots] For example, type declarations are optional (_any_ as escape hatch), inference doesn’t cover all the code, it requires _type guards_,[^type-guards] JSON data is not type-checked, and not all JavaScript libraries have type annotations.
 
-[^blind-spots]: The article [TypeScript's Blind Spots](https://incrementalelm.com/tips/typescript-blind-spots/) by Dillon Kearns illustrates several weak points of TypeScript.
+[^blind-spots]: The article [TypeScript's Blind Spots](https://incrementalelm.com/typescript-blind-spots/) by Dillon Kearns illustrates several weak points of TypeScript.
 [^type-guards]:
     [Type guards](https://www.typescriptlang.org/docs/handbook/advanced-types.html) are TypeScript expressions that perform a runtime check to discriminate between _custom types_. For example:{{< highlight typescript >}}function isFish(pet: Fish | Bird): pet is Fish {
     return (pet as Fish).swim !== undefined;
