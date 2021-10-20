@@ -15,13 +15,13 @@ seo:
 
 Designer-to-developer handoff is an important part of the product development life cycle. It takes place when the design deliverables are ready to be provided to developers for implementation.
 
-In the E-Commerce Mobile App Development Department, the design deliverables are mainly created using [Figma](https://www.figma.com). The design in Figma is considered as the single-source-of-truth from which the app development team derives the product's UI. As such, it is critical to ensure that it is formatted in a way that can be clearly understood by the developers in order to avoid any inconsistencies between the design and the final product.
+In the E-Commerce Mobile App Development Department, the design deliverables are mainly created using [Figma](https://www.figma.com). The design in Figma is considered as the single-source-of-truth from which the app development team derives the product's UI. As such, it is critical to ensure that it is formatted in a way that can be clearly understood by the developers to avoid any inconsistencies between the design and the final product.
 
 # Design Deliverable Prerequisites
 
 Our designers prepare the design deliverables following a few general guidelines. Here are a couple of examples.
 
-- Assets that are intended to be exported into an image format are converted into a Figma Component and laid out in a separate page and/or frame. Likewise, typography and color styles are also defined as Figma Styles, and a representation of these styles are also shown in its own page and/or frame.
+- Assets that are intended to be exported into an image format are converted into a Figma Component and laid out in a separate page and/or frame. Likewise, typography and color styles are also defined as Figma Styles, and representations of these styles are also shown in dedicated pages and/or frames.
 
 | Sample Style Guide |                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------- |
@@ -29,7 +29,7 @@ Our designers prepare the design deliverables following a few general guidelines
 | Colors             | [![figma_colors](./images/figma_colors.png)](./images/figma_colors.png)             |
 | Typography         | [![figma_typography](./images/figma_typography.png)](./images/figma_typography.png) |
 
-- No ad-hoc use of images, colors or font styles that are not defined as components or styles in Figma. Using predefined components and styles reduces the chance of having unintentional variations (e.g., multiple unintended shades of reds, etc.) across the entire design file.
+- No ad-hoc use of images, colors, or font styles that are not defined as components or styles in Figma. Using predefined components and styles reduces the chance of having unintentional variations (e.g., multiple unintended shades of reds, etc.) across the entire design file.
 
 | Typography and Color without using Figma Styles ❌                   | Typography and Color using Figma Styles ⭕️                             |
 | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -37,7 +37,7 @@ Our designers prepare the design deliverables following a few general guidelines
 
 # RDS
 
-In order to help with the seamless adoption of the design into our iOS/Android development projects, we have developed an in-house command line interface tool called RDS (Rakuten Design System) to automate the following processes:
+To help with the seamless adoption of the design into our iOS/Android development projects, we have developed an in-house command-line interface tool called RDS (Rakuten Design System) to automate the following processes:
 
 1. Exporting of image assets, color and typography styles from Figma
 2. Importing of assets and styles from (1) into the iOS/Android projects
@@ -72,7 +72,7 @@ To get the latest assets and styles from Figma, all the developer needs to do is
 - RDS in action
   [![rds_figma_generate](./images/rds_figma_generate.gif)](./images/automating-code-and-asset-generation-from/rds_figma_generate.gif)
 
-- RDS with option to show a summary of the generated assets and styles from Figma
+- RDS with the option to show a summary of the generated assets and styles from Figma
   [![rds_figma_generate](./images/rds_figma_generate_ss.png)](./images/automating-code-and-asset-generation-from/rds_figma_generate_ss.png)
 
 Under the hood, RDS performs the following:
@@ -82,7 +82,7 @@ Under the hood, RDS performs the following:
 **2.** Convert the Figma file into an intermediary format we internally named **RDL** (Rakuten Design Language)
 [![RDL](./images/RDL.jpg)](./images/automating-code-and-asset-generation-from/RDL.jpg)
 
-**3.** Use template files to generate code from the RDL model. The code generated can be any programming language depending on the template file . Below is an example of a template file that generates a Swift file.
+**3.** Use template files to generate code from the RDL model. The code generated can be any programming language depending on the template file. Below is an example of a template file that generates a Swift file.
 
 _UIColor+RDS.swift.stencil_
 
@@ -119,7 +119,7 @@ extension UIColor {
 }
 ```
 
-**4.** Download the assets, process if needed, and import into the development project.
+**4.** Download the assets, process if needed, and import them into the development project.
 
 - For iOS, the image assets and color styles are automatically added to the \*.xcassets folder.
   [![xcode_assets](./images/xcode_assets.png)](./images/automating-code-and-asset-generation-from/xcode_assets.png)
@@ -132,7 +132,7 @@ Here's a simplified diagram showing the flow:
 
 # Further Expansion
 
-By using an intermediary format (RDL), we are able to add support for other design files by only modifying the steps leading up to the conversion of the design file into the RDL format. For instance, if we were to add support for Sketch files, theoretically, only specific parts of the flow will have to change as shown in the diagram below.
+By using an intermediary format (RDL), we can add support for other design files by only modifying the steps leading up to the conversion of the design file into the RDL format. For instance, if we were to add support for Sketch files, theoretically, only specific parts of the flow will have to change as shown in the diagram below.
 [![rds_flow_sketch](./images/rds_flow_sketch.png)](./images/automating-code-and-asset-generation-from/rds_flow_sketch.png)
 
 # Conclusion
