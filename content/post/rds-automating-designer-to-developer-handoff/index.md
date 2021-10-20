@@ -7,6 +7,8 @@ authors:
 hero: /post/rds-automating-designer-to-developer-handoff/images/rds_logo.png
 draft: true
 license: cc-by
+seo:
+  canonical: https://commerce-engineer.rakuten.careers/entry/en/tech/0045
 ---
 
 # Overview
