@@ -105,11 +105,11 @@ book.summary(Author.new("Bater", "Chen"))
 
 The output of `summary` is the same, but the parameter reduces from two strings to one object. Well, you may doubt that it doesn't really matter, but imagine that you can follow the same pattern to reduce the parameter from 10 data into 1 object. That would be a huge impact.
 
-## Law of Demeter
+## Encapsulation
 
-You may also have noticed that I relocated the logic of full name from book class to author class because a full name can perform independently without interaction with the book object. An **object should know less about each other** is said by the [Law of Demeter][2] or the "Least Knowledge Principle".
+You may also have noticed that I relocated the logic of `full_name` from the `Book` class to the `Author`. This is because the behavior in `full_name` is independent of any book object.
 
-In this case, the book class shouldn't know the logic of `full_name`. The business logic of `full_name` should only be defined in the author class, not spread to somewhere else. From now on, the book class has no dependence on first name and last name directly. In fact, any object can be the parameter of the summary method once it has the `full_name` method. For example, if we have a user object that also can return `full_name`, it also works fine with the `summary` method.
+In this case, the `Book` class shouldn't know the logic of `full_name`. The business logic of `full_name` should only be defined in the `Author` class, not spread to somewhere else. From now on, the `Book` class has no dependence on `first_name` and `last_name` directly. In fact, any object can be the parameter of the summary method as long as it has a `full_name` method. For example, if we have a user object that also can return `full_name`, it also works fine with the `summary` method.
 
 This practice is also known as [Duck Typing][1]. If it walks like a duck and it quacks like a duck, then it must be a duck. In duck typing, an object's suitability is determined by the presence of certain methods and properties, rather than the type of the object itself. In the Java case, you can use the interface.
 
