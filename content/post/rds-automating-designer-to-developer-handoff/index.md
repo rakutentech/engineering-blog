@@ -11,6 +11,8 @@ seo:
   canonical: https://commerce-engineer.rakuten.careers/entry/en/tech/0045
 ---
 
+Hi, this is Gian from the E-Commerce Mobile Architect Group. The mission of our group is to improve productivity by creating tools to automate tasks and providing technical support for the e-commerce mobile app development teams. In this article, we will discuss about one of the developer tools we created to automate designer-to-developer handoff.
+
 # Overview
 
 Designer-to-developer handoff is an important part of the product development life cycle. It takes place when the design deliverables are ready to be provided to developers for implementation.
