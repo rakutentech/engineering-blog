@@ -13,13 +13,13 @@ seo:
 
 Hi, this is Gian from the E-Commerce Mobile Architect Group. The mission of our group is to improve productivity by creating tools to automate tasks and providing technical support for the e-commerce mobile app development teams. In this article, we will discuss about one of the developer tools we created to automate designer-to-developer handoff.
 
-# Overview
+## Overview
 
 Designer-to-developer handoff is an important part of the product development life cycle. It takes place when the design deliverables are ready to be provided to developers for implementation.
 
 In the E-Commerce Mobile App Development Department, the design deliverables are mainly created using [Figma](https://www.figma.com). The design in Figma is considered as the single-source-of-truth from which the app development team derives the product's UI. As such, it is critical to ensure that it is formatted in a way that can be clearly understood by the developers to avoid any inconsistencies between the design and the final product.
 
-# Design Deliverable Prerequisites
+## Design Deliverable Prerequisites
 
 Our designers prepare the design deliverables following a few general guidelines. Here are a couple of examples.
 
@@ -37,7 +37,7 @@ Our designers prepare the design deliverables following a few general guidelines
 | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | [![figma_icons](./images/ui_no_style.png)](./images/ui_no_style.png) | [![figma_icons](./images/ui_with_style.png)(./images/ui_with_style.png) |
 
-# RDS
+## RDS
 
 To help with the seamless adoption of the design into our iOS/Android development projects, we have developed an in-house command-line interface tool called RDS (Rakuten Design System) to automate the following processes:
 
@@ -132,12 +132,12 @@ Here's a simplified diagram showing the flow:
 
 [![rds_flow_figma](./images/rds_flow_figma.png)](./images/automating-code-and-asset-generation-from/rds_flow_figma.png)
 
-# Further Expansion
+## Further Expansion
 
 By using an intermediary format (RDL), we can add support for other design files by only modifying the steps leading up to the conversion of the design file into the RDL format. For instance, if we were to add support for Sketch files, theoretically, only specific parts of the flow will have to change as shown in the diagram below.
 [![rds_flow_sketch](./images/rds_flow_sketch.png)](./images/automating-code-and-asset-generation-from/rds_flow_sketch.png)
 
-# Conclusion
+## Conclusion
 
 **RDS** is just one of the internal tools that we have developed to help us automate tasks that are otherwise done manually. It helps developers stay in sync with the design files created by our designers.
 It initially started as a one-off tool meant for our iOS projects under Rakuten Commerce TECH. However, it's now part of the workflow for our Android projects as well.
