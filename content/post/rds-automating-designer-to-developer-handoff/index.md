@@ -11,7 +11,7 @@ seo:
   canonical: https://commerce-engineer.rakuten.careers/entry/en/tech/0045
 ---
 
-Hi, this is Gian from the E-Commerce Mobile Architect Group. The mission of our group is to improve productivity by creating tools to automate tasks and providing technical support for the e-commerce mobile app development teams. In this article, we will discuss about one of the developer tools we created to automate designer-to-developer handoff.
+Hi, this is Gian from the E-Commerce Mobile Architect Group. The mission of our group is to improve productivity by creating tools to automate tasks and providing technical support for the e-commerce mobile app development teams. In this article, we will discuss one of the developer tools we created to automate designer-to-developer handoff.
 
 ## Overview
 
@@ -23,7 +23,7 @@ In the E-Commerce Mobile App Development Department, the design deliverables are
 
 Our designers prepare the design deliverables following a few general guidelines. Here are a couple of examples.
 
-- Assets that are intended to be exported into an image format are converted into a Figma Component and laid out in a separate page and/or frame. Likewise, typography and color styles are also defined as Figma Styles, and representations of these styles are also shown in dedicated pages and/or frames.
+- Assets that are intended to be exported into an image format are converted into a Figma Component and laid out in a separate page and/or frame. Likewise, typography and color styles are defined as Figma Styles. Representations of these styles are also shown in dedicated pages and/or frames.
 
 | Sample Style Guide |                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------- |
@@ -140,4 +140,4 @@ By using an intermediary format (RDL), we can add support for other design files
 ## Conclusion
 
 **RDS** is just one of the internal tools that we have developed to help us automate tasks that are otherwise done manually. It helps developers stay in sync with the design files created by our designers.
-It initially started as a one-off tool meant for our iOS projects under Rakuten Commerce TECH. However, it's now part of the workflow for our Android projects as well.
+It started as a one-off tool meant for our iOS projects under Rakuten Commerce TECH. However, it's now part of the workflow for our Android projects as well.
