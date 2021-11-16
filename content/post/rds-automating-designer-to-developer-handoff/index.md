@@ -1,11 +1,11 @@
 ---
 title: "RDS: Automating Code and Asset Generation From Figma"
-date: 2021-10-20
+date: 2021-11-16
 excerpt: "Designer-to-developer handoff is an important part of the product development life cycle. It takes place when the design deliverables are ready to be provided to developers for implementation."
 authors:
   - Gianne Chiong
 hero: /post/rds-automating-designer-to-developer-handoff/images/rds_logo.png
-draft: true
+draft: false
 license: cc-by
 seo:
   canonical: https://commerce-engineer.rakuten.careers/entry/en/tech/0045
