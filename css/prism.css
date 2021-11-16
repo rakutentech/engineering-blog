@@ -1,5 +1,5 @@
-/* PrismJS 1.24.1
-https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+aspnet+bash+c+csharp+cpp+diff+docker+elm+git+go+json+kotlin+lua+makefile+markdown+markup-templating+php+python+jsx+tsx+ruby+sql+toml+typescript+yaml&plugins=line-numbers+show-language+toolbar+copy-to-clipboard */
+/* PrismJS 1.25.0
+https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+aspnet+bash+c+csharp+cpp+diff+docker+elm+git+go+json+kotlin+lua+makefile+markdown+markup-templating+php+python+jsx+tsx+ruby+sql+swift+toml+typescript+yaml&plugins=line-numbers+show-language+toolbar+copy-to-clipboard */
 /**
  * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
  * Based on https://github.com/chriskempson/tomorrow-theme
@@ -170,6 +170,7 @@ div.code-toolbar {
 
 div.code-toolbar > .toolbar {
 	position: absolute;
+	z-index: 10;
 	top: .3em;
 	right: .2em;
 	transition: opacity 0.3s ease-in-out;
