@@ -13,4 +13,11 @@ social:
   youtube: "#"
 taxonomies:
   author: authors
+# TRACKING STARTS
 googleAnalytics: 'G-Z6FNGN7J13'
+privacy:
+  googleAnalytics:
+    respectDoNotTrack: true
+    anonymizeIP: true
+    useSessionStorage: true
+# TRACKING ENDS
