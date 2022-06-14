@@ -15,29 +15,37 @@
    ```
    You should see output like:
    ```
-   Hugo Static Site Generator v0.78.2/extended darwin/amd64 BuildDate: unknown
+   hugo v0.100.2+extended darwin/amd64 BuildDate: unknown
    ```
-
-2. [Fork](https://github.com/rakutentech/engineering-blog/fork)
-3. Clone your repository and initialize its submodules:
+   Make sure the **+extended** is present.
+2. [Fork](https://github.com/rakutentech/engineering-blog/fork) the repository.
+3. Clone your forked repository and initialize its submodules:
    ```
-   > git clone --recurse-submodules <YOUR GIT REPO CLONE URL>
+   > git clone --recurse-submodules git@github.com:YOUR_GITHUB_USERNAME/engineering-blog.git
    ```
-4. Run the local server with:
+4. Initialize hugo with the existing config and assets already in the repo:
+   ```
+   > cd engineering-blog
+   > hugo
+   ```
+5. Run the local server with:
    ```
    > hugo server
    ```
-5. Browse to the local server URL with your favourite browser.
-
+6. Browse to the [local server URL](http://localhost:1313/) with your favourite browser.
+7. Press Ctrl-C to stop the server you started running in the foreground.
 ### Creating a new blog post
 
-1. Open a new git branch for your post:
+For the purpose of this README we will assume the post will be labeled `docking-with-docker`.
+Replace this id with something that briefly describes the title of your new post.
+
+1. Create a new git branch off of "main" for your post:
    ```
-   > git checkout -b post/docking-with-docker
+   > git checkout -b content/public/post/docking-with-docker
    ```
-2. Generate new post markdown file:
+2. Generate new post file in [Markdown format](https://www.markdownguide.org/tools/hugo/):
    ```
-   > hugo new post/docking-with-docker.md
+   > hugo new content/public/post/docking-with-docker.md
    ```
 3. Edit the post with your favourite text editor.
 4. Run `hugo server -D` to test how the draft post looks locally.
