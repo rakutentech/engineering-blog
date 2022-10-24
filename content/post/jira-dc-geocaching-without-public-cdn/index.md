@@ -6,8 +6,8 @@ excerpt: "Implementing self-hosted cache servers for Rakuten Jira in other geogr
 timeToRead: 10
 authors:
   - Joao Afonso
-  - Eric Martin 
-draft: true
+  - Eric Martin
+draft: false
 license: cc-by
 ---
 
