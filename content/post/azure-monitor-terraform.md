@@ -5,7 +5,7 @@ hero: /images/hero-3.jpg
 excerpt: "Working with Azure Monitor in collecting custom log files using Terraform"
 timeToRead: 5
 authors:
-  - Rakuten Taro
+  - Dylan McGinley
 draft: true
 license: cc-by
 ---
