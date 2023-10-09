@@ -8,14 +8,23 @@ authors:
   - Dylan McGinley
 draft: true
 license: cc-by
+canonical: https://medium.com/@dylan.mcginley/azure-monitor-terraform-collecting-custom-log-files-57f74b70567a
 ---
 To collect custom log files from a VM (Virtual Machine) managed by Azure, it is recommended to use Azure Monitor and the Azure Monitor Agent (AMA). The Azure Monitor Agent is the successor to the Log Analytics Agent which is due to be deprecated on August 31, 2024. There are currently issues associated with the azurerm provider in relation to Azure Monitor.
 
 I suspect in the future these issues will be addressed with updates but for now this post will serve to provide a workaround along with an explanation as to what these are.
 
-Azurerm version 3.74.0
+Below are links to some of the capabilities discussed in this article:
 
-The issue
+* [Azure Log Analytics](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview)
+* [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
+* [Azure Monitor Agent](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview)
+* [Terraform azurerm provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+
+**Azurerm version 3.74.0**
+
+## The issue
+
 Currently the advised method of collecting logs and storing them with Azure Monitor relies on the following configuration
 
 * Setup a Log Analytics Workspace
@@ -50,11 +59,10 @@ resource "azurerm_log_analytics_workspace_table" "container_logs" {
 }
 ```
 
+The resource 'azurerm_log_analytics_workspace_table' has since been deprecated. Currently there is no way to create the Log Analytics Workspace Table using the azurerm provider.
 
+## The Workaround
 
-The resource azurerm_log_analytics_workspace_table has since been deprecated. Currently there is no way to create the Log Analytics Workspace Table using the azurerm provider.
-
-The Workaround
 This is done by using the AzAPI to create the Log Analytics Workspace Table. The schema of the table should match the format of your logs.
 
 To enable the AzAPI you have to include it in your terraform configuration as follows:
@@ -120,7 +128,8 @@ resource "azapi_resource" "data_collection_logs_table" {
 
 This HCL block will create the table in the associated Log Analytics Workspace using the defined schema. Details of schema options can be found in the documentation.
 
-The documentation for this can be found here: https://learn.microsoft.com/en-us/azure/templates/microsoft.operationalinsights/workspaces/tables?pivots=deployment-language-bicep
+The documentation for this can be found [here](https://learn.microsoft.com/en-us/azure/templates/microsoft.operationalinsights/workspaces/tables?pivots=deployment-language-bicep).
+
 
 The next step will be to configure the Data Collection Rule (DCR)
 
@@ -193,7 +202,6 @@ This HCL block will setup the Data Collection Rule. The DCR stream declaration s
 * Azure Monitor Agent Extension
 * Data Collection Rule Association
 
-
 ```hcl
 resource "azurerm_log_analytics_workspace" "example" {
   name                = "example"
@@ -226,5 +234,7 @@ resource "azurerm_monitor_data_collection_rule_association" "dcr" {
 ```
 
 Once you’ve applied out your terraform configuration you can view the table via your Log Analytics Workspace.
- 
+
+![Log Analytics Workspace Table](log-analytics-table.png)
+
 As stated before, this problem should be fixed in a future version of the azurerm provider but for now I hope it helps someone out!
