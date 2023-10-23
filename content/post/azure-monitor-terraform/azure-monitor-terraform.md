@@ -1,7 +1,7 @@
 ---
 title: "Azure Monitor & Terraform: Collecting custom log files"
 date: 2023-10-03T14:46:23+01:00
-hero: /images/hero-3.jpg
+hero: /post/azure-monitor-terraform/aztf.png
 excerpt: "Working with Azure Monitor in collecting custom log files using Terraform"
 timeToRead: 5
 authors:
@@ -59,7 +59,7 @@ resource "azurerm_log_analytics_workspace_table" "container_logs" {
 }
 ```
 
-The resource 'azurerm_log_analytics_workspace_table' has since been deprecated. Currently there is no way to create the Log Analytics Workspace Table using the azurerm provider.
+The resource `azurerm_log_analytics_workspace_table` has since been deprecated. Currently there is no way to create the Log Analytics Workspace Table using the azurerm provider.
 
 ## The Workaround
 
