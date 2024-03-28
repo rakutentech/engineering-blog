@@ -19,13 +19,13 @@ Below are links to some of the capabilities discussed in this article:
 * [Azure Log Analytics](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview)
 * [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
 * [Azure Monitor Agent](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview)
-* [Terraform azurerm provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+* [Terraform AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-**Azurerm version 3.74.0**
+**AzureRM version 3.74.0**
 
 ## The issue
 
-Currently the advised method of collecting logs and storing them with Azure Monitor relies on the following configuration
+Currently the advised method of collecting logs and storing them with Azure Monitor relies on the following configuration:
 
 * Setup a Log Analytics Workspace
 * Create a Log Analytics Workspace Table for storing logs
@@ -34,7 +34,7 @@ Currently the advised method of collecting logs and storing them with Azure Moni
 * Setup a Data Collection Endpoint
 * Create a Data Collection Association between the Data Collection Rule and the VM
 
-The issue here pertains to the Log Analytics Workspace Table. According to the Azure documentation, it advises that a table be created in the Log Analytics Workspace to store the custom logs. Using the azurerm provider, It is implied that when creating the DCR and setting up the stream declaration that it will create the table in the Log Analytics Workspace, however this does not seem to be the case. Previously developers were able to create the table when setting up the Log Analytics Workspace
+The issue here pertains to the Log Analytics Workspace Table. According to the Azure documentation, it advises that a table be created in the Log Analytics Workspace to store the custom logs. Using the AzureRM provider, It is implied that when creating the DCR and setting up the stream declaration that it will create the table in the Log Analytics Workspace, however this does not seem to be the case. Previously developers were able to create the table when setting up the Log Analytics Workspace.
 
 ```hcl
 resource "azurerm_resource_group" "example" {
@@ -237,4 +237,4 @@ Once you’ve applied out your terraform configuration you can view the table vi
 
 ![Log Analytics Workspace Table](log-analytics-table.png)
 
-As stated before, this problem should be fixed in a future version of the azurerm provider but for now I hope it helps someone out!
+As stated before, this problem should be fixed in a future version of the AzureRM provider but for now I hope it helps someone out!
