@@ -6,7 +6,6 @@ excerpt: "Working with Azure Monitor in collecting custom log files using Terraf
 timeToRead: 5
 authors:
   - Dylan McGinley
-draft: true
 license: cc-by
 canonical: https://medium.com/@dylan.mcginley/azure-monitor-terraform-collecting-custom-log-files-57f74b70567a
 ---
